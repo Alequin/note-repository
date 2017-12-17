@@ -1,10 +1,12 @@
+@import "./../../PageWidth.scss";
+
 .nav-bar-frame{
   .nav-chain-frame{
     display: flex;
     justify-content: center;
 
     .nav-chain-spacing{
-      width: 70%;
+      width: $desktop-chain-divider-width;
     }
   }
 
@@ -13,7 +15,7 @@
     padding: 10px;
     justify-content: space-between;
     margin: auto;
-    width: 80%;
+    width: $desktop-width;
     border-radius: 20px;
     background-color: white;
 
@@ -55,21 +57,21 @@
 
   @media only screen and (max-width: 719px){
     .nav-chain-spacing{
-      width: 70%;
+      width: $mobile-chain-divider-width;
     }
 
     nav{
-      width: 90%;
+      width: $mobile-width;
     }
   }
 
   @media only screen and (min-width: 720px) and (max-width: 1049px){
     .nav-chain-spacing{
-      width: 40%;
+      width: $tablet-chain-divider-width;
     }
 
     nav{
-      width: 50%;
+      width: $tablet-width;
     }
   }
 
