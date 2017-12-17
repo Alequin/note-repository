@@ -6,7 +6,7 @@
     justify-content: center;
 
     .nav-chain-spacing{
-      width: $desktop-chain-divider-width;
+      width: $chain-divider-width;
     }
   }
 
@@ -15,7 +15,7 @@
     padding: 10px;
     justify-content: space-between;
     margin: auto;
-    width: $desktop-width;
+    width: $page-width;
     border-radius: 20px;
     background-color: white;
 
@@ -52,26 +52,6 @@
       .search-icon{
         cursor: pointer;
       }
-    }
-  }
-
-  @media only screen and (max-width: 719px){
-    .nav-chain-spacing{
-      width: $mobile-chain-divider-width;
-    }
-
-    nav{
-      width: $mobile-width;
-    }
-  }
-
-  @media only screen and (min-width: 720px) and (max-width: 1049px){
-    .nav-chain-spacing{
-      width: $tablet-chain-divider-width;
-    }
-
-    nav{
-      width: $tablet-width;
     }
   }
 

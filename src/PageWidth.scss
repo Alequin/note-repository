@@ -1,8 +1,12 @@
-$desktop-width: 80%;
-$desktop-chain-divider-width: 70%;
+$page-width: 80%;
+$chain-divider-width: 70%;
 
-$tablet-width: 50%;
-$tablet-chain-divider-width: 40%;
+@media only screen and (max-width: 719px){
+  $page-width: 90%;
+  $chain-divider-width: 70%;
+}
 
-$mobile-width: 90%;
-$mobile-chain-divider-width: 70%;
+@media only screen and (min-width: 720px) and (max-width: 1049px){
+  $page-width: 50%;
+  $chain-divider-width: 40%;
+}
