@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 class SelectionPage extends React.Component{
   render(){
-    console.log(this.props.noteList);
     return (
       <div className="selection-page-frame">
 
@@ -13,7 +12,7 @@ class SelectionPage extends React.Component{
 }
 
 SelectionPage.propTypes = {
-  noteList: PropTypes.array,
+  notes: PropTypes.array,
 }
 
 export default SelectionPage
