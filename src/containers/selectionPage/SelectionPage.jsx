@@ -15,8 +15,7 @@ class SelectionPage extends React.Component{
   render(){
     return (
       <div className="selection-page-frame">
-        <NoteSummary/>
-        <NoteSummary/>
+        {this.buildSummaries(this.props.notes)}
       </div>
     )
   }
