@@ -11,6 +11,8 @@ class NoteSummary extends React.Component{
   }
 }
 
-NoteSummary.propTypes = {}
+NoteSummary.propTypes = {
+  note: PropTypes.object,
+}
 
 export default NoteSummary
