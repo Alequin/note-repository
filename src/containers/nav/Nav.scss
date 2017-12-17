@@ -58,7 +58,11 @@
   @media only screen and (max-width: 1050px){
     nav{
       display: block;
-      text-align: center;
+
+      .nav-buttons-frame{
+        justify-content: center;
+        text-align: center;
+      }
     }
   }
 }
