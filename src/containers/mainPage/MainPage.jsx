@@ -1,6 +1,6 @@
 import React from "react"
 import Nav from "./../nav/Nav.jsx"
-import SelectionPage from "./../selection_page/SelectionPage.jsx"
+import SelectionPage from "./../selectionPage/SelectionPage.jsx"
 
 //DEV TO REMOVE
 import fakeSummaryData from "./../../dev/fakeSummaryNotesData.js"
