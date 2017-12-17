@@ -19,7 +19,7 @@ class Nav extends React.Component{
             </div>
             <div>
               <a href="#">Clear Filter Tags</a>
-              <a href="#">View Random Note</a>
+              <a href="#">Random Note</a>
             </div>
           </div>
 
