@@ -1,0 +1,7 @@
+alias strt="npm start"
+alias tst="npm test"
+alias bld="npm run build"
+
+alias clear-project-aliases="unalias tst tst-u bld strt"
+
+echo "Project aliases loaded"

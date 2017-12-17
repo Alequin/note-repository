@@ -1,0 +1,48 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "**An application that, once run, asks for an numeric input (N) and outputs a multiplication table of (N) prime numbers**",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "open ./build/index.html",
+    "build": "webpack -w",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alequin/prime_tables.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alequin/prime_tables/issues"
+  },
+  "homepage": "https://github.com/Alequin/prime_tables#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "jest": "^21.2.1",
+    "react-test-renderer": "^16.2.0",
+    "regenerator-runtime": "^0.11.0",
+    "webpack": "^2.2.0"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "node-sass": "^4.5.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9"
+  }
+}
