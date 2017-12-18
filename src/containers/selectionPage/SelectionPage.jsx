@@ -4,10 +4,14 @@ import NoteSummary from "./../../components/noteSummary/NoteSummary.jsx"
 
 class SelectionPage extends React.Component{
 
+  buildSingleSummary(key, note){
+    return <NoteSummary key={key} note={note}/>
+  }
+
   buildSummaries(notes){
     let key = 0
     const summaries = notes.map((note) => {
-      return <NoteSummary key={key++} note={note}/>
+      return this.buildSingleSummary(key++, note)
     })
     return summaries
   }
