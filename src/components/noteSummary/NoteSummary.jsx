@@ -61,6 +61,7 @@ class NoteSummary extends React.Component{
 
 NoteSummary.propTypes = {
   note: PropTypes.object,
+  onClick: PropTypes.func
 }
 
 export default NoteSummary

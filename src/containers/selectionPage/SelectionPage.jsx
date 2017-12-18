@@ -5,7 +5,13 @@ import NoteSummary from "./../../components/noteSummary/NoteSummary.jsx"
 class SelectionPage extends React.Component{
 
   buildSingleSummary(key, note){
-    return <NoteSummary key={key} note={note}/>
+    return (
+      <NoteSummary
+        key={key}
+        onClickSummary={this.props.onClickSummary}
+        note={note}
+      />
+    )
   }
 
   buildSummaries(notes){
