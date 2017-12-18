@@ -1,4 +1,4 @@
-export default (
+export const mockNoteSummeries1 = (
   [
     {
       title: "title1",
