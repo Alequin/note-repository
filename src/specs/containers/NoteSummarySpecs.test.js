@@ -31,4 +31,10 @@ describe("Note Summary", function(){
     let result = note.buildTagList(mockNoteSummeries1[0].tags)
     assert.deepEqual(result, expected)
   })
+
+  it("can build array of tags in spans -- given array is empty", () => {
+    let expected = []
+    let result = note.buildTagList([])
+    assert.deepEqual(result, expected)
+  })
 })
