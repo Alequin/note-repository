@@ -1,13 +1,12 @@
 import React from "react"
 import PropTypes from 'prop-types'
 
+import {addEllipsis} from "./../../util/addEllipsis"
+
 class NoteSummary extends React.Component{
 
   prepareSummaryText(text, length){
-    if(text.length > length){
-      return text.slice(0, length) + "..."
-    }
-    return text
+    return addEllipsis(text, length)
   }
 
   buildTagElement(key, tag){
@@ -34,7 +33,9 @@ class NoteSummary extends React.Component{
         <hr/>
         <h3>{this.props.note.title}</h3>
         <hr/>
-        <p className="summary-text">{this.props.note.summary}</p>
+        <p className="summary-text">
+          {this.prepareSummaryText(this.props.note.summary, 100)}
+        </p>
         <hr/>
         <span className="note-summary-tag">Tags:</span>
         {this.buildTagList(this.props.note.tags)}
