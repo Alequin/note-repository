@@ -1,3 +1,10 @@
+@import "./../../PageWidth.scss";
+
+$note-frame-width: 300px;
+@media only screen and (max-width: 480px){
+  $note-frame-width: $page-width;
+}
+
 .note-summary-frame{
-  
+  width: $note-frame-width;
 }
