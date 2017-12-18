@@ -15,7 +15,7 @@ describe("Main page", function(){
   })
 
   it("can decide which page to show - selection page", () => {
-    let expected = <SelectionPage notes={[]}/>
+    let expected = <SelectionPage onClickSummary={page.onClickSummaryNote} notes={[]}/>
     let result = page.renderPage(Pages.selection)
     assert.deepEqual(result, expected)
   })

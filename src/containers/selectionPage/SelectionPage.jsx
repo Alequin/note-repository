@@ -27,6 +27,7 @@ class SelectionPage extends React.Component{
 
 SelectionPage.propTypes = {
   notes: PropTypes.array,
+  onClickSummary: PropTypes.func,
 }
 
 export default SelectionPage

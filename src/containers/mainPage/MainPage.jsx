@@ -5,12 +5,13 @@ import ViewPage from "./../viewPage/ViewPage.jsx"
 import Pages from "./Pages.js"
 
 //DEV TO REMOVE
-import {mockNoteSummeries2} from "./../../dev/fakeSummaryNotesData.js"
+import {mockNoteSummeries2, mockFullNote1} from "./../../dev/fakeSummaryNotesData.js"
 
 class MainPage extends React.Component{
 
   constructor(props){
     super(props)
+    this.onClickSummaryNote = this.onClickSummaryNote.bind(this)
     this.state = {
       pageToShow: Pages.selection,
       noteSummaries: [],
@@ -22,10 +23,22 @@ class MainPage extends React.Component{
     this.setState({noteSummaries: mockNoteSummeries2})
   }
 
+  onClickSummaryNote(selected){
+    this.setState({
+      pageToShow: Pages.view,
+      currentNote: mockFullNote1,
+    })
+  }
+
   renderPage(page){
     switch(page){
       case Pages.selection:
-        return <SelectionPage notes={this.state.noteSummaries}/>
+        return (
+          <SelectionPage
+            onClickSummary={this.onClickSummaryNote}
+            notes={this.state.noteSummaries}
+          />
+        )
       case Pages.view:
         return <ViewPage note={this.state.currentNote}/>
     }
