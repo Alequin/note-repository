@@ -12,6 +12,7 @@ class MainPage extends React.Component{
   constructor(props){
     super(props)
     this.state = {
+      pageToShow: Pages.selection,
       noteSummaries: [],
       currentNote: {}
     }
@@ -34,7 +35,7 @@ class MainPage extends React.Component{
     return (
       <div className="main-page-frame">
           <Nav/>
-
+          {this.renderPage(this.state.pageToShow)}
       </div>
     )
   }
