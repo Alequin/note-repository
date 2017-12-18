@@ -50,4 +50,10 @@ describe("Note Summary", function(){
     let result = note.prepareTitle("this is a title")
     assert.deepEqual(result, expected)
   })
+
+  it("can prepare date text", () => {
+    let expected = <p>Date: 2017-05-01</p>
+    let result = note.prepareDateText("2017-05-01")
+    assert.deepEqual(result, expected)
+  })
 })

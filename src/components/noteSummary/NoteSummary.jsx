@@ -31,6 +31,10 @@ class NoteSummary extends React.Component{
     return tagElements
   }
 
+  prepareDateText(date){
+    return <p>{"Date: " + date}</p>
+  }
+
   render(){
     return (
       <div className="note-summary-frame">
@@ -44,7 +48,7 @@ class NoteSummary extends React.Component{
         <span className="note-summary-tag">Tags:</span>
         {this.buildTagList(this.props.note.tags)}
         <hr/>
-        <p>Date: {this.props.note.creationDate}</p>
+        {this.prepareDateText(this.props.note.creationDate)}
         <hr/>
       </div>
     )
