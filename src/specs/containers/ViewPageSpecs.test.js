@@ -30,4 +30,29 @@ describe("View page", function(){
     let result = page.prepareContent("")
     assert.deepEqual(result, expected)
   })
+
+  it("can prepare detail section", () => {
+    let expected = (
+      <div className="detail-frame">
+        <p>Date: 2017-05-16</p>
+        <hr/>
+        <p>Tags: tag1, tag2, tag3</p>
+        <hr/>
+        <p>Sources</p>
+        <ul>
+          <li>Source1, Internet, <a href="www.a.com">www.a.com</a></li>
+          <li>Source2, Book, <a href="#">N/A</a></li>
+        </ul>
+      </div>
+    )
+    let result = page.prepareDetails(
+      "2017-05-16",
+      ["tag1", "tag2", "tag3"],
+      [
+        {name: "Source1", type: "Internet", link: "www.a.com"},
+        {name: "Source2", type: "Book", link: null},
+      ]
+    )
+    assert.deepEqual(result, expected)
+  })
 })

@@ -31,35 +31,70 @@ export const mockNoteSummeries2 = (
       summary: "WWWWWWWWWW WWWWWWWWWWW WWWWWWWWWW WWWWWWWWWWW WWWWWWWWWW WWWWWWWWWWW WWWWWWWWWW WWWWWWWWWWW",
       content: "# this is the content woo\n ## title 2",
       tags: ["tag1", "tag2", "tag3", "tag4"],
-      creationDate: "2017-05-01"
+      creationDate: "2017-05-01",
+      sources: [
+        {
+          name: "source1",
+          type: "internet",
+          location: "www.awesome.com"
+        }
+      ]
     },
     {
       title: "title2",
       summary: "this is also a summary this is a summary this is a summary this is a summary this is a summary this is a summary this is a summary ",
       content: "this is the content woo",
       tags: ["tag1", "tag2", "tag3", "tag4"],
-      creationDate: "2017-08-25"
+      creationDate: "2017-08-25",
+      sources: [
+        {
+          name: "source1",
+          type: "internet",
+          location: "www.awesome.com"
+        }
+      ]
     },
     {
       title: "title3",
       summary: "all the summary",
       content: "this is the content woo",
       tags: ["tag1", "tag2", "tag3", "tag4"],
-      creationDate: "2016-01-12"
+      creationDate: "2016-01-12",
+      sources: [
+        {
+          name: "source1",
+          type: "internet",
+          location: "www.awesome.com"
+        }
+      ]
     },
     {
       title: "title4",
       summary: "all the summary",
       content: "this is the content woo",
       tags: ["tag1", "tag2", "tag3", "tag4"],
-      creationDate: "2016-01-12"
+      creationDate: "2016-01-12",
+      sources: [
+        {
+          name: "source1",
+          type: "internet",
+          location: "www.awesome.com"
+        }
+      ]
     },
     {
       title: "title5",
       summary: "all the summary",
       content: "this is the content woo",
       tags: ["tag1", "tag2", "tag3", "tag4"],
-      creationDate: "2016-01-12"
+      creationDate: "2016-01-12",
+      sources: [
+        {
+          name: "source1",
+          type: "internet",
+          location: "www.awesome.com"
+        }
+      ]
     },
   ]
 )
@@ -69,5 +104,12 @@ export const mockFullNote1 = {
   summary: "all the summary",
   body: "This is the body provided",
   tags: ["tag1", "tag2", "tag3", "tag4"],
-  creationDate: "2016-01-12"
+  creationDate: "2016-01-12",
+  sources: [
+    {
+      name: "source1",
+      type: "internet",
+      location: "www.awesome.com"
+    }
+  ]
 }

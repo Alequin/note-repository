@@ -22,15 +22,34 @@ class View extends React.Component{
     )
   }
 
+  prepareDetails(date, tags, sources){
+    return (
+      <div className="detail-frame">
+        <p>{"Date: " + date}</p>
+        <hr/>
+        <p>Tags: tag1, tag2, tag3</p>
+        <hr/>
+        <p>Sources</p>
+        <ul>
+          <li>Source1, Internet, <a href="www.a.com">www.a.com</a></li>
+          <li>Source2, Book, <a href="#">N/A</a></li>
+        </ul>
+      </div>
+    )
+  }
+
   render(){
     return (
       <div className="view-page-frame">
         <section>
-
+          {this.prepareHeader(
+            this.props.note.title,
+            this.props.note.summary
+          )}
         </section>
 
         <section>
-
+          {this.prepareContent(this.props.note.content)}
         </section>
       </div>
     )
