@@ -5,6 +5,10 @@ import {addEllipsis} from "./../../util/addEllipsis"
 
 class NoteSummary extends React.Component{
 
+  prepareTitle(text){
+    return <h2>{text}</h2>
+  }
+
   prepareSummaryText(text, length){
     return addEllipsis(text, length)
   }
@@ -31,7 +35,7 @@ class NoteSummary extends React.Component{
     return (
       <div className="note-summary-frame">
         <hr/>
-        <h3>{this.props.note.title}</h3>
+          {this.prepareTitle(this.props.note.title)}
         <hr/>
         <p className="summary-text">
           {this.prepareSummaryText(this.props.note.summary, 100)}

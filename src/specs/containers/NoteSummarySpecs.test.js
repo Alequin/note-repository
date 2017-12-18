@@ -44,4 +44,10 @@ describe("Note Summary", function(){
     let result = note.prepareSummaryText(input, 8)
     assert.deepEqual(result, expected)
   })
+
+  it("can prepare summary title", () => {
+    let expected = <h2>this is a title</h2>
+    let result = note.prepareTitle("this is a title")
+    assert.deepEqual(result, expected)
+  })
 })
