@@ -14,4 +14,10 @@ describe("Add Ellipsis", function(){
     let result = addEllipsis("string", 6)
     assert.strictEqual(result, expected)
   })
+
+  it("returns string if charAt value is too high", () => {
+    let expected = "string"
+    let result = addEllipsis("string", 7)
+    assert.strictEqual(result, expected)
+  })
 })
