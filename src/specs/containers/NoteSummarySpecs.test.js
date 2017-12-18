@@ -37,4 +37,11 @@ describe("Note Summary", function(){
     let result = note.buildTagList([])
     assert.deepEqual(result, expected)
   })
+
+  it("can prepare summary text", () => {
+    let input = "123456789"
+    let expected = "12345678..."
+    let result = note.prepareSummaryText(input, 8)
+    assert.deepEqual(result, expected)
+  })
 })

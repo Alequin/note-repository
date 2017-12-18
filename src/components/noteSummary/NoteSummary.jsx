@@ -3,6 +3,13 @@ import PropTypes from 'prop-types'
 
 class NoteSummary extends React.Component{
 
+  prepareSummaryText(text, length){
+    if(text.length > length){
+      return text.slice(0, length) + "..."
+    }
+    return text
+  }
+
   buildTagElement(key, tag){
     return (
       <span
