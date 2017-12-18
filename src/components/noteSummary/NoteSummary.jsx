@@ -5,7 +5,8 @@ class NoteSummary extends React.Component{
   render(){
     return (
       <div className="note-summary-frame">
-        summary
+        <h3>{this.props.note.title}</h3>
+        <hr/>
       </div>
     )
   }

@@ -6,5 +6,6 @@ $note-frame-width: 300px;
 }
 
 .note-summary-frame{
-  width: $note-frame-width;
+  min-width: $note-frame-width;
+  margin: 30px;
 }

@@ -1,8 +1,11 @@
 @import "./../../PageWidth.scss";
 
 .selection-page-frame{
-  width: $page-width;
-  margin: 20px auto;
   background-color: red;
+  width: $page-width;
   height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto;
 }
