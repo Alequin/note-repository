@@ -3,16 +3,20 @@ import PropTypes from 'prop-types'
 
 class NoteSummary extends React.Component{
 
+  buildTagElement(key, tag){
+    return (
+      <span
+        key={key}
+        className="note-summary-tag">
+          {tag}
+      </span>
+    )
+  }
+
   buildTagList(tags){
     let key = 0
     const tagElements = tags.map((tag) => {
-      return (
-        <span
-          key={key++}
-          className="note-summary-tag">
-            {tag}
-        </span>
-      )
+      return this.buildTagElement(key++, tag)
     })
     return tagElements
   }

@@ -11,6 +11,14 @@ describe("Note Summary", function(){
     note = new NoteSummary(mockNoteSummeries1[0])
   })
 
+  it("can build single tag in span", () => {
+    const className = "note-summary-tag"
+
+    let expected = <span key="0" className={className}>tag1</span>
+    let result = note.buildTagElement(0, mockNoteSummeries1[0].tags[0])
+    assert.deepEqual(result, expected)
+  })
+
   it("can build array of tags in spans", () => {
     const className = "note-summary-tag"
 
