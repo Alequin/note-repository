@@ -28,11 +28,14 @@ class NoteSummary extends React.Component{
   }
 
   buildTagList(tags){
+    const elements = [
+      <span key="-1" className="note-summary-tag">Tags:</span>
+    ]
     let key = 0
-    const tagElements = tags.map((tag) => {
-      return this.buildTagElement(key++, tag)
-    })
-    return tagElements
+    for(let tag of tags){
+      elements.push(this.buildTagElement(key++, tag))
+    }
+    return elements
   }
 
   prepareDateText(date){
@@ -47,7 +50,6 @@ class NoteSummary extends React.Component{
         <hr/>
         {this.prepareSummaryText(this.props.note.summary, 100)}
         <hr/>
-        <span className="note-summary-tag">Tags:</span>
         {this.buildTagList(this.props.note.tags)}
         <hr/>
         {this.prepareDateText(this.props.note.creationDate)}

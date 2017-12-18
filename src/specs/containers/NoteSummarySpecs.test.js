@@ -23,6 +23,7 @@ describe("Note Summary", function(){
     const className = "note-summary-tag"
 
     let expected = [
+      <span key="-1" className="note-summary-tag">Tags:</span>,
       <span key="0" className={className}>tag1</span>,
       <span key="1" className={className}>tag2</span>,
       <span key="2" className={className}>tag3</span>,
@@ -33,7 +34,7 @@ describe("Note Summary", function(){
   })
 
   it("can build array of tags in spans -- given array is empty", () => {
-    let expected = []
+    let expected = [<span key="-1" className="note-summary-tag">Tags:</span>]
     let result = note.buildTagList([])
     assert.deepEqual(result, expected)
   })
