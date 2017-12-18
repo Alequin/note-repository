@@ -32,6 +32,8 @@ class NoteSummary extends React.Component{
         <span className="note-summary-tag">Tags:</span>
         {this.buildTagList(this.props.note.tags)}
         <hr/>
+        <p>Date: {this.props.note.creationDate}</p>
+        <hr/>
       </div>
     )
   }
