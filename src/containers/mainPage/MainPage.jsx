@@ -26,7 +26,7 @@ class MainPage extends React.Component{
   onClickSummaryNote(selected){
     this.setState({
       pageToShow: Pages.view,
-      currentNote: mockFullNote1,
+      currentNote: selected,
     })
   }
 
