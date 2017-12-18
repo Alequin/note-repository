@@ -10,7 +10,11 @@ class NoteSummary extends React.Component{
   }
 
   prepareSummaryText(text, length){
-    return addEllipsis(text, length)
+    return (
+      <p className="summary-text">
+        {addEllipsis(text, length)}
+      </p>
+    )
   }
 
   buildTagElement(key, tag){
@@ -39,11 +43,9 @@ class NoteSummary extends React.Component{
     return (
       <div className="note-summary-frame">
         <hr/>
-          {this.prepareTitle(this.props.note.title)}
+        {this.prepareTitle(this.props.note.title)}
         <hr/>
-        <p className="summary-text">
-          {this.prepareSummaryText(this.props.note.summary, 100)}
-        </p>
+        {this.prepareSummaryText(this.props.note.summary, 100)}
         <hr/>
         <span className="note-summary-tag">Tags:</span>
         {this.buildTagList(this.props.note.tags)}

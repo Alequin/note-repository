@@ -40,7 +40,7 @@ describe("Note Summary", function(){
 
   it("can prepare summary text", () => {
     let input = "123456789"
-    let expected = "12345678..."
+    let expected = <p className="summary-text">12345678...</p>
     let result = note.prepareSummaryText(input, 8)
     assert.deepEqual(result, expected)
   })
