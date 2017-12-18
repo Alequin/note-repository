@@ -29,7 +29,7 @@ export const mockNoteSummeries2 = (
     {
       title: "title1",
       summary: "WWWWWWWWWW WWWWWWWWWWW WWWWWWWWWW WWWWWWWWWWW WWWWWWWWWW WWWWWWWWWWW WWWWWWWWWW WWWWWWWWWWW",
-      content: "this is the content woo",
+      content: "# this is the content woo\n ## title 2",
       tags: ["tag1", "tag2", "tag3", "tag4"],
       creationDate: "2017-05-01"
     },
