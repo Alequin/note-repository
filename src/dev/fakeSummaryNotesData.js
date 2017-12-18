@@ -55,3 +55,11 @@ export const mockNoteSummeries2 = (
     },
   ]
 )
+
+export const mockFullNote1 = {
+  title: "title5",
+  summary: "all the summary",
+  body: "This is the body provided",
+  tags: ["tag1", "tag2", "tag3", "tag4"],
+  creationDate: "2016-01-12"
+}
