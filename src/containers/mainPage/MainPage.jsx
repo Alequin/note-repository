@@ -12,7 +12,8 @@ class MainPage extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      noteSummaries: []
+      noteSummaries: [],
+      currentNote: {}
     }
   }
 
@@ -24,7 +25,8 @@ class MainPage extends React.Component{
     switch(page){
       case Pages.selection:
         return <SelectionPage notes={this.state.noteSummaries}/>
-
+      case Pages.view:
+        return <ViewPage note={this.state.currentNote}/>
     }
   }
 
