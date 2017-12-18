@@ -1,11 +1,15 @@
 @import "./../../PageWidth.scss";
 
 .selection-page-frame{
-  background-color: red;
   width: $page-width;
-  height: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px auto;
+  margin: 10px auto;
+}
+
+@media only screen and (max-width: 480px){
+  .selection-page-frame{
+    width: 95%;
+  }
 }

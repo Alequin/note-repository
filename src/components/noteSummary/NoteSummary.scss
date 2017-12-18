@@ -1,11 +1,18 @@
-@import "./../../PageWidth.scss";
+.note-summary-frame{
+  width: 325px;
+  background-color: white;
+  margin: 15px;
+  padding: 10px;
 
-$note-frame-width: 300px;
-@media only screen and (max-width: 480px){
-  $note-frame-width: $page-width;
+  h3{
+    margin: 0;
+  }
 }
 
-.note-summary-frame{
-  min-width: $note-frame-width;
-  margin: 30px;
+@media only screen and (max-width: 480px){
+  .note-summary-frame{
+    width: 100%;
+    min-width: 0;
+    margin: 5px 0;
+  }
 }

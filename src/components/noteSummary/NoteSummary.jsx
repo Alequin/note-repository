@@ -5,7 +5,10 @@ class NoteSummary extends React.Component{
   render(){
     return (
       <div className="note-summary-frame">
+        <hr/>
         <h3>{this.props.note.title}</h3>
+        <hr/>
+        <p>{this.props.note.summary}</p>
         <hr/>
       </div>
     )
