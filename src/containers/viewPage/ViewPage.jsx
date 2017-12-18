@@ -13,6 +13,15 @@ class View extends React.Component{
     )
   }
 
+  prepareContent(markDown){
+    return (
+      <MarkDown
+        className="content"
+        markDown={markDown}
+      />
+    )
+  }
+
   render(){
     return (
       <div className="view-page-frame">
@@ -21,7 +30,7 @@ class View extends React.Component{
         </section>
 
         <section>
-          <MarkDown className="content" markDown={this.props.note.content} />
+
         </section>
       </div>
     )
