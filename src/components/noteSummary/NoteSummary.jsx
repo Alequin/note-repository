@@ -5,6 +5,15 @@ import {addEllipsis} from "./../../util/addEllipsis"
 
 class NoteSummary extends React.Component{
 
+  constructor(props){
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(event){
+    this.props.onClickSummary(this.props.note)
+  }
+
   prepareTitle(text){
     return <h2>{text}</h2>
   }
@@ -44,7 +53,7 @@ class NoteSummary extends React.Component{
 
   render(){
     return (
-      <div className="note-summary-frame">
+      <div className="note-summary-frame" onClick={this.handleClick}>
         <hr/>
         {this.prepareTitle(this.props.note.title)}
         <hr/>
