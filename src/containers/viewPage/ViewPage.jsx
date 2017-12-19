@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import MarkDown from "./../../components/markDown/MarkDown.jsx"
+import Tags from "./../../components/tags/Tags.jsx"
 
 class View extends React.Component{
 
@@ -27,7 +28,11 @@ class View extends React.Component{
       <div className="detail-frame">
         <p>{"Date: " + date}</p>
         <hr/>
-        <p>Tags: tag1, tag2, tag3</p>
+        <Tags
+          className={"note-summary-tag"}
+          prefix={"Tags:"}
+          tags={tags}
+        />
         <hr/>
         <p>Sources</p>
         <ul>

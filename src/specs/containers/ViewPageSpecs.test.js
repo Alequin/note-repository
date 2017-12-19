@@ -3,6 +3,8 @@ import React from 'react'
 import ViewPage from "./../../containers/viewPage/ViewPage.jsx"
 import MarkDown from "./../../components/markDown/MarkDown.jsx"
 import {mockFullNote1} from "./../../dev/fakeSummaryNotesData.js"
+import Tags from "./../../components/tags/Tags.jsx"
+
 
 describe("View page", function(){
 
@@ -32,11 +34,17 @@ describe("View page", function(){
   })
 
   it("can prepare detail section", () => {
+    const tags = ["tag1", "tag2", "tag3"]
+
     let expected = (
       <div className="detail-frame">
         <p>Date: 2017-05-16</p>
         <hr/>
-        <p>Tags: tag1, tag2, tag3</p>
+        <Tags
+          className={"note-summary-tag"}
+          prefix={"Tags:"}
+          tags={tags}
+        />
         <hr/>
         <p>Sources</p>
         <ul>
@@ -47,7 +55,7 @@ describe("View page", function(){
     )
     let result = page.prepareDetails(
       "2017-05-16",
-      ["tag1", "tag2", "tag3"],
+      tags,
       [
         {name: "Source1", type: "Internet", link: "www.a.com"},
         {name: "Source2", type: "Book", link: null},
