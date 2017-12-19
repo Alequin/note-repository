@@ -27,7 +27,11 @@ class Tags extends React.Component{
   render(){
     return (
       <div className="tags-frame">
-
+        {this.buildTags(
+          this.props.className,
+          this.props.prefix,
+          this.props.tags
+        )}
       </div>
     )
   }

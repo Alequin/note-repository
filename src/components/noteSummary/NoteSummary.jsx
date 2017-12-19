@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types'
+import Tags from "./../../components/tags/Tags.jsx"
 
 import {addEllipsis} from "./../../util/addEllipsis"
 
@@ -26,25 +27,14 @@ class NoteSummary extends React.Component{
     )
   }
 
-  buildTagElement(key, tag){
-    return (
-      <span
-        key={key}
-        className="note-summary-tag">
-          {tag}
-      </span>
-    )
-  }
-
   buildTagList(tags){
-    const elements = [
-      <span key="-1" className="note-summary-tag">Tags:</span>
-    ]
-    let key = 0
-    for(let tag of tags){
-      elements.push(this.buildTagElement(key++, tag))
-    }
-    return elements
+    return (
+      <Tags
+        className={"note-summary-tag"}
+        prefix={"Tags:"}
+        tags={tags}
+      />
+    )
   }
 
   prepareDateText(date){
