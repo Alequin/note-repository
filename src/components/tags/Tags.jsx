@@ -7,19 +7,23 @@ class Tags extends React.Component{
     super(props)
   }
 
+  buildTag(key, className, content){
+    return (
+      <span
+        key={key}
+        className={className}>
+          {content}
+      </span>
+    )
+  }
+
   buildTags(className, prefix, tags){
     const elements = [
       <span key="-1" className={className}>{prefix}</span>
     ]
     let key = 0
     for(let tag of tags){
-      elements.push(
-        <span
-          key={key++}
-          className={className}>
-            {tag}
-        </span>
-      )
+      elements.push(this.buildTag(key++, className, tag))
     }
     return elements
   }

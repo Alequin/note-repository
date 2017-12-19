@@ -4,9 +4,25 @@ import Tags from "./../../components/tags/Tags.jsx"
 
 describe("Tags", function(){
 
-  it("can make tag elements", () => {
-    const tags = new Tags({})
+  let tags
 
+  beforeEach(() => {
+    tags = new Tags({})
+  })
+
+  it("can make single tag", () => {
+    let expected = (
+      <span
+        key="0"
+        className="note-summary-tag">
+          tag1
+      </span>
+    )
+    let result = tags.buildTag(0, "note-summary-tag", "tag1")
+    assert.deepEqual(result, expected)
+  })
+
+  it("can make tag elements", () => {
     const tagValues = ["tag1", "tag2", "tag3"]
 
     let expected = [
