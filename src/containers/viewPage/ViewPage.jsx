@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import MarkDown from "./../../components/markDown/MarkDown.jsx"
 import {renderDateFromString} from "./../../components/date/Date.jsx"
 import Tags from "./../../components/tags/Tags.jsx"
+import Sources from "./../../components/sources/Sources.jsx"
 
 class View extends React.Component{
 
@@ -36,10 +37,7 @@ class View extends React.Component{
         />
         <hr/>
         <p>Sources</p>
-        <ul>
-          <li>Source1, Internet, <a href="www.a.com">www.a.com</a></li>
-          <li>Source2, Book, <a href="#">N/A</a></li>
-        </ul>
+        <Sources sources={sources}/>
       </div>
     )
   }

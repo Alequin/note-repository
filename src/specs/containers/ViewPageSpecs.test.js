@@ -5,6 +5,7 @@ import MarkDown from "./../../components/markDown/MarkDown.jsx"
 import {renderDateFromString} from "./../../components/date/Date.jsx"
 import {mockFullNote1} from "./../../dev/fakeSummaryNotesData.js"
 import Tags from "./../../components/tags/Tags.jsx"
+import Sources from "./../../components/sources/Sources.jsx"
 
 
 describe("View page", function(){
@@ -36,6 +37,10 @@ describe("View page", function(){
 
   it("can prepare detail section", () => {
     const tags = ["tag1", "tag2", "tag3"]
+    const sources = [
+      {name: "Source1", type: "Internet", link: "www.a.com"},
+      {name: "Source2", type: "Book", link: null},
+    ]
 
     let expected = (
       <div className="detail-frame">
@@ -48,19 +53,13 @@ describe("View page", function(){
         />
         <hr/>
         <p>Sources</p>
-        <ul>
-          <li>Source1, Internet, <a href="www.a.com">www.a.com</a></li>
-          <li>Source2, Book, <a href="#">N/A</a></li>
-        </ul>
+        <Sources sources={sources}/>
       </div>
     )
     let result = page.prepareDetails(
       "2017-05-16",
       tags,
-      [
-        {name: "Source1", type: "Internet", link: "www.a.com"},
-        {name: "Source2", type: "Book", link: null},
-      ]
+      sources
     )
     assert.deepEqual(result, expected)
   })
