@@ -24,31 +24,31 @@ describe("Sources component", function(){
 
   it("can prepare one source -- type: internet", () => {
     let expected = (
-      <li>
+      <li key={0}>
         <a href="www.a.com">Name: source1<br/>From: internet<br/>Link: www.a.com</a>
       </li>
     )
-    let result = sources.prepareSource(source1)
+    let result = sources.prepareSource(0, source1)
     assert.deepEqual(result, expected)
   })
 
   it("can prepare one source -- type: book", () => {
     let expected = (
-      <li>
+      <li key={0}>
         <a href="N/A">Name: source2<br/>From: book<br/>Link: N/A</a>
       </li>
     )
-    let result = sources.prepareSource(source2)
+    let result = sources.prepareSource(0, source2)
     assert.deepEqual(result, expected)
   })
 
   it("can prepare a list of sources", () => {
     let expected = (
       <ul>
-        <li>
+        <li key={0}>
           <a href="www.a.com">Name: source1<br/>From: internet<br/>Link: www.a.com</a>
         </li>
-        <li>
+        <li key={1}>
           <a href="N/A">Name: source2<br/>From: book<br/>Link: N/A</a>
         </li>
       </ul>

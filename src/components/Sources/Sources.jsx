@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 class Sources extends React.Component{
 
-  prepareSource(source){
+  prepareSource(key, source){
     return (
-      <li>
+      <li key={key}>
         <a href={source.location}>
           {"Name: "+source.name}<br/>
           {"From: "+source.type}<br/>
@@ -16,8 +16,9 @@ class Sources extends React.Component{
   }
 
   prepareSourceList(sources){
+    let key = 0
     const sourceElements = sources.map((source) => {
-      return this.prepareSource(source)
+      return this.prepareSource(key++, source)
     })
     return (
       <ul>
