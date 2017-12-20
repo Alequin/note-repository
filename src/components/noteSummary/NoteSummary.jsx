@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import Tags from "./../../components/tags/Tags.jsx"
-
+import Date from "./../../components/date/Date.jsx"
 import {addEllipsis} from "./../../util/addEllipsis"
 
 class NoteSummary extends React.Component{
@@ -37,11 +37,8 @@ class NoteSummary extends React.Component{
     )
   }
 
-  prepareDateText(date){
-    return <p>{"Date: " + date}</p>
-  }
-
   render(){
+    const splitDate = this.props.note.creationDate.split("-")
     return (
       <div className="note-summary-frame" onClick={this.handleClick}>
         <hr/>
@@ -51,7 +48,13 @@ class NoteSummary extends React.Component{
         <hr/>
         {this.buildTagList(this.props.note.tags)}
         <hr/>
-        {this.prepareDateText(this.props.note.creationDate)}
+        <span>Date: </span>
+        <Date
+          className={"summary-date"}
+          year={parseInt(splitDate[0])}
+          month={parseInt(splitDate[1])}
+          day={parseInt(splitDate[2])}
+        />
         <hr/>
       </div>
     )

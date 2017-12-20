@@ -3,6 +3,7 @@ import React from 'react'
 import {mockNoteSummeries1} from "./../../dev/fakeSummaryNotesData.js"
 import NoteSummary from "./../../components/noteSummary/NoteSummary.jsx"
 import Tags from "./../../components/tags/Tags.jsx"
+import DateFormat from "./../../util/DateFormat.js"
 
 describe("Note Summary", function(){
 
@@ -36,12 +37,6 @@ describe("Note Summary", function(){
   it("can prepare summary title", () => {
     let expected = <h2>this is a title</h2>
     let result = note.prepareTitle("this is a title")
-    assert.deepEqual(result, expected)
-  })
-
-  it("can prepare date text", () => {
-    let expected = <p>Date: 2017-05-01</p>
-    let result = note.prepareDateText("2017-05-01")
     assert.deepEqual(result, expected)
   })
 })
