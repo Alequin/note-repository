@@ -2,6 +2,7 @@ import assert from "assert"
 import React from 'react'
 import ViewPage from "./../../containers/viewPage/ViewPage.jsx"
 import MarkDown from "./../../components/markDown/MarkDown.jsx"
+import {renderDateFromString} from "./../../components/date/Date.jsx"
 import {mockFullNote1} from "./../../dev/fakeSummaryNotesData.js"
 import Tags from "./../../components/tags/Tags.jsx"
 
@@ -38,7 +39,7 @@ describe("View page", function(){
 
     let expected = (
       <div className="detail-frame">
-        <p>Date: 2017-05-16</p>
+        {renderDateFromString('details-date', "Date: ", "2017-05-16")}
         <hr/>
         <Tags
           className={"note-summary-tag"}

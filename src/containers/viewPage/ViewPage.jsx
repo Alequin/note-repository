@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import MarkDown from "./../../components/markDown/MarkDown.jsx"
+import {renderDateFromString} from "./../../components/date/Date.jsx"
 import Tags from "./../../components/tags/Tags.jsx"
 
 class View extends React.Component{
@@ -26,7 +27,7 @@ class View extends React.Component{
   prepareDetails(date, tags, sources){
     return (
       <div className="detail-frame">
-        <p>{"Date: " + date}</p>
+        {renderDateFromString("details-date", "Date: ", date)}
         <hr/>
         <Tags
           className={"note-summary-tag"}
