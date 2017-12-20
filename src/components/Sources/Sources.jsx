@@ -15,6 +15,17 @@ class Sources extends React.Component{
     )
   }
 
+  prepareSourceList(sources){
+    const sourceElements = sources.map((source) => {
+      return this.prepareSource(source)
+    })
+    return (
+      <ul>
+        {sourceElements}
+      </ul>
+    )
+  }
+
   render(){
     return (
       <div className={"sources-component" + " " + this.props.className}>

@@ -41,4 +41,19 @@ describe("Sources component", function(){
     let result = sources.prepareSource(source2)
     assert.deepEqual(result, expected)
   })
+
+  it("can prepare a list of sources", () => {
+    let expected = (
+      <ul>
+        <li>
+          <a href="www.a.com">Name: source1<br/>From: internet<br/>Link: www.a.com</a>
+        </li>
+        <li>
+          <a href="N/A">Name: source2<br/>From: book<br/>Link: N/A</a>
+        </li>
+      </ul>
+    )
+    let result = sources.prepareSourceList([source1, source2])
+    assert.deepEqual(result, expected)
+  })
 })
