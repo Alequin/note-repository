@@ -7,11 +7,19 @@ class DateFormat{
     this.day = day
   }
 
+  validateInput(year, month, day){
+    return (
+      (year < 10000 && year > 999) &&
+      (month < 13 && month > 0) &&
+      (day < 32 && day > 0)
+    )
+  }
+
   toString(format, delimeter = "-"){
     let result = ""
     for(let j=0; j<format.length; j++){
       result += this.getValue(format[j])
-      if(j<format.length-1)result += delimeter
+      if(j<format.length-1) result += delimeter
     }
     return result
   }

@@ -84,4 +84,14 @@ describe("Date format", function(){
     ], "/")
     assert.strictEqual(result, expected)
   })
+
+  it("can validate input", () => {
+      assert.ok(date.validateInput(2017, 5, 1))
+      assert.ok(!date.validateInput(2017, 1, 0))
+      assert.ok(!date.validateInput(2017, 1, 32))
+      assert.ok(!date.validateInput(2017, 0, 1))
+      assert.ok(!date.validateInput(2017, 13, 1))
+      assert.ok(!date.validateInput(999, 1, 1))
+      assert.ok(!date.validateInput(10000, 1, 1))
+  })
 })
