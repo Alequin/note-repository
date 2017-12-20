@@ -9,7 +9,7 @@ class View extends React.Component{
 
   prepareHeader(title, summary){
     return (
-      <div className="note-header">
+      <div className="view-page-tile note-header">
         <h2>{title}</h2>
         <p>{summary}</p>
       </div>
@@ -19,7 +19,7 @@ class View extends React.Component{
   prepareContent(markDown){
     return (
       <MarkDown
-        className="content"
+        className="view-page-tile content-frame"
         markDown={markDown}
       />
     )
@@ -27,7 +27,7 @@ class View extends React.Component{
 
   prepareDetails(date, tags, sources){
     return (
-      <div className="detail-frame">
+      <div className="view-page-tile detail-frame">
         {renderDateFromString("details-date", "Date: ", date)}
         <hr/>
         <Tags
@@ -54,6 +54,14 @@ class View extends React.Component{
 
         <section>
           {this.prepareContent(this.props.note.content)}
+        </section>
+
+        <section>
+          {this.prepareDetails(
+            this.props.note.creationDate,
+            this.props.note.tags,
+            this.props.note.sources
+          )}
         </section>
       </div>
     )

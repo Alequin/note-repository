@@ -1,7 +1,14 @@
+@import "./../../PageWidth.scss";
+
+$section-padding: 10px;
+
 .view-page-frame{
   width: $page-width;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px auto;
+  margin: auto;
+
+  .view-page-tile{
+    background-color: white;
+    padding: $section-padding;
+    margin: 10px 0;
+  }
 }
