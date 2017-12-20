@@ -54,4 +54,34 @@ describe("Date format", function(){
     ], "-")
     assert.strictEqual(result, expected)
   })
+
+  it("can format date -- mm-yyyy-dd", () => {
+    let expected = "05-2017-01"
+    let result = date.toString([
+      DateFormat.month,
+      DateFormat.year,
+      DateFormat.day
+    ], "-")
+    assert.strictEqual(result, expected)
+  })
+
+  it("can format date -- dd-mm-yyyy", () => {
+    let expected = "01-05-2017"
+    let result = date.toString([
+      DateFormat.day,
+      DateFormat.month,
+      DateFormat.year
+    ], "-")
+    assert.strictEqual(result, expected)
+  })
+
+  it("can format date with delimeter /", () => {
+    let expected = "01/05/2017"
+    let result = date.toString([
+      DateFormat.day,
+      DateFormat.month,
+      DateFormat.year
+    ], "/")
+    assert.strictEqual(result, expected)
+  })
 })
