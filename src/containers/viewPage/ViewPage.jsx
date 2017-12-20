@@ -31,7 +31,7 @@ class View extends React.Component{
         {renderDateFromString("details-date", "Date: ", date)}
         <hr/>
         <Tags
-          className={"note-summary-tag"}
+          className={"details-tag"}
           prefix={"Tags:"}
           tags={tags}
         />

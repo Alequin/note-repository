@@ -11,7 +11,7 @@ class Tags extends React.Component{
     return (
       <span
         key={key}
-        className={className}>
+        className={"tag " + className}>
           {content}
       </span>
     )

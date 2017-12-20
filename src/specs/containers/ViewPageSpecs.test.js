@@ -18,7 +18,7 @@ describe("View page", function(){
 
   it("can prepare header", () => {
     let expected = (
-      <div className="note-header">
+      <div className="view-page-tile note-header">
         <h2>title1</h2>
         <p>this is a summary</p>
       </div>
@@ -29,7 +29,7 @@ describe("View page", function(){
 
   it("can prepare content", () => {
     let expected = (
-      <MarkDown className="content" markDown={""} />
+      <MarkDown className="view-page-tile content-frame" markDown={""} />
     )
     let result = page.prepareContent("")
     assert.deepEqual(result, expected)
@@ -43,11 +43,11 @@ describe("View page", function(){
     ]
 
     let expected = (
-      <div className="detail-frame">
+      <div className="view-page-tile detail-frame">
         {renderDateFromString('details-date', "Date: ", "2017-05-16")}
         <hr/>
         <Tags
-          className={"note-summary-tag"}
+          className={"details-tag"}
           prefix={"Tags:"}
           tags={tags}
         />

@@ -14,7 +14,7 @@ describe("Tags", function(){
     let expected = (
       <span
         key="0"
-        className="note-summary-tag">
+        className="tag note-summary-tag">
           tag1
       </span>
     )
@@ -29,17 +29,17 @@ describe("Tags", function(){
       <span key="-1" className="note-summary-tag">Tags:</span>,
       <span
         key="0"
-        className="note-summary-tag">
+        className="tag note-summary-tag">
           tag1
       </span>,
       <span
         key="1"
-        className="note-summary-tag">
+        className="tag note-summary-tag">
           tag2
       </span>,
       <span
         key="2"
-        className="note-summary-tag">
+        className="tag note-summary-tag">
           tag3
       </span>
     ]
