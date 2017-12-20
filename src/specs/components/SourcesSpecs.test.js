@@ -6,6 +6,7 @@ describe("Sources component", function(){
 
   let sources
   let source1
+  let source2
 
   beforeEach(() => {
     sources = new Sources({})
@@ -13,6 +14,11 @@ describe("Sources component", function(){
       name: "source1",
       type: "internet",
       location: "www.a.com"
+    }
+    source2 = {
+      name: "source2",
+      type: "book",
+      location: "N/A"
     }
   })
 
@@ -23,6 +29,16 @@ describe("Sources component", function(){
       </li>
     )
     let result = sources.prepareSource(source1)
+    assert.deepEqual(result, expected)
+  })
+
+  it("can prepare one source -- type: book", () => {
+    let expected = (
+      <li>
+        <a href="N/A">Name: source2<br/>From: book<br/>Link: N/A</a>
+      </li>
+    )
+    let result = sources.prepareSource(source2)
     assert.deepEqual(result, expected)
   })
 })
