@@ -29,6 +29,17 @@ class DateFormat{
     return result
   }
 
+  getValue(scale){
+    switch(scale){
+      case DateFormat.year:
+        return this.year.toString()
+      case DateFormat.month:
+        return this.formatDigit(this.month)
+      case DateFormat.day:
+        return this.formatDigit(this.day)
+    }
+  }
+
   formatDigit(digit){
     digit = digit.toString()
     if(digit.length === 1){

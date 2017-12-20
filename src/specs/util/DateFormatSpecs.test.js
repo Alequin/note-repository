@@ -31,6 +31,20 @@ describe("Date format", function(){
     assert.strictEqual(result, expected)
   })
 
+  it("can get value", () => {
+    let expected = "2017"
+    let result = date.getValue(DateFormat.year)
+    assert.strictEqual(result, expected)
+
+    expected = "05"
+    result = date.getValue(DateFormat.month)
+    assert.strictEqual(result, expected)
+
+    expected = "01"
+    result = date.getValue(DateFormat.day)
+    assert.strictEqual(result, expected)
+  })
+
   it("can format date -- yyyy-mm-dd", () => {
     let expected = "2017-05-01"
     let result = date.toString([
