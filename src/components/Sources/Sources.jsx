@@ -30,7 +30,7 @@ class Sources extends React.Component{
   render(){
     return (
       <div className={"sources-component" + " " + this.props.className}>
-
+        {this.prepareSourceList(this.props.sources)}
       </div>
     )
   }
