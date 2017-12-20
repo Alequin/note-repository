@@ -11,18 +11,7 @@ class DateFormat{
     let result = ""
 
     for(let j=0; j<format.length; j++){
-      const scale = format[j]
-      switch(scale){
-        case DateFormat.year:
-          result += this.year.toString()
-          break;
-        case DateFormat.month:
-          result += this.formatDigit(this.month)
-          break;
-        case DateFormat.day:
-          result += this.formatDigit(this.day)
-          break;
-      }
+      result += this.getValue(format[j])
       if(j<format.length-1)result += delimeter
     }
 
