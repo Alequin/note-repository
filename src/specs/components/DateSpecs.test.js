@@ -1,8 +1,10 @@
 import assert from "assert"
+import React from 'react'
 import Date from "./../../components/date/Date.jsx"
+import {renderDateFromString} from "./../../components/date/Date.jsx"
 import DateFormat from "./../../util/DateFormat.js"
 
-describe("test", function(){
+describe("Date component", function(){
 
   let date
 
@@ -14,5 +16,14 @@ describe("test", function(){
     let expected = "01-05-2017"
     let result = date.prepareDate(2017, 5, 1)
     assert.strictEqual(result, expected)
+  })
+})
+
+describe("renderDateFromString", function(){
+
+  it("can render date from string (yyyy-mm-dd)", () => {
+    let expected = <Date className={"class"} year={2017} month={5} day={1}/>
+    let result = renderDateFromString("class", "2017-05-01")
+    assert.deepEqual(result, expected)
   })
 })

@@ -33,4 +33,14 @@ Date.propTypes = {
   day: PropTypes.number,
 }
 
+export const renderDateFromString = function(className, date){
+  const splitDate = date.split("-")
+  return <Date
+    className={className}
+    year={parseInt(splitDate[0])}
+    month={parseInt(splitDate[1])}
+    day={parseInt(splitDate[2])}
+  />
+}
+
 export default Date
