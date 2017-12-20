@@ -15,7 +15,7 @@ class Date extends React.Component{
 
   render(){
     return (
-      <div className={this.props.className}>
+      <div className={"date-component" + " " + this.props.className}>
         <span>{this.props.prefix}</span>
         <span>
           {this.prepareDate(
