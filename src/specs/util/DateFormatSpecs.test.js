@@ -94,4 +94,16 @@ describe("Date format", function(){
       assert.ok(!date.validateInput(999, 1, 1))
       assert.ok(!date.validateInput(10000, 1, 1))
   })
+
+  it("cannot init with invald input", () => {
+      assert.throws(() => {
+        new DateFormat(2017, 1, 0)
+      })
+      assert.throws(() => {
+        new DateFormat(2017, 32, 1)
+      })
+      assert.throws(() => {
+        new DateFormat(999, 5, 1)
+      })
+  })
 })

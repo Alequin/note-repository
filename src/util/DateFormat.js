@@ -2,6 +2,9 @@
 class DateFormat{
 
   constructor(year, month, day){
+    if(!this.validateInput(year, month, day)){
+      throw new Error(`Invalid input: year-${year} month-${month} day-${day}`)
+    }
     this.year = year
     this.month = month
     this.day = day
