@@ -22,8 +22,8 @@ describe("Date component", function(){
 describe("renderDateFromString", function(){
 
   it("can render date from string (yyyy-mm-dd)", () => {
-    let expected = <Date className={"class"} year={2017} month={5} day={1}/>
-    let result = renderDateFromString("class", "2017-05-01")
+    let expected = <Date className={"class"} prefix="Date: " year={2017} month={5} day={1}/>
+    let result = renderDateFromString("class", "Date: ", "2017-05-01")
     assert.deepEqual(result, expected)
   })
 })

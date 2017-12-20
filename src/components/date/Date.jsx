@@ -16,11 +16,14 @@ class Date extends React.Component{
   render(){
     return (
       <div className={this.props.className}>
-        {this.prepareDate(
-          this.props.year,
-          this.props.month,
-          this.props.day
-        )}
+        <span>{this.props.prefix}</span>
+        <span>
+          {this.prepareDate(
+            this.props.year,
+            this.props.month,
+            this.props.day
+          )}
+        </span>
       </div>
     )
   }
@@ -28,15 +31,17 @@ class Date extends React.Component{
 
 Date.propTypes = {
   className: PropTypes.string,
+  prefix: PropTypes.string,
   year: PropTypes.number,
   month: PropTypes.number,
   day: PropTypes.number,
 }
 
-export const renderDateFromString = function(className, date){
+export const renderDateFromString = function(className, prefix, date){
   const splitDate = date.split("-")
   return <Date
     className={className}
+    prefix={prefix}
     year={parseInt(splitDate[0])}
     month={parseInt(splitDate[1])}
     day={parseInt(splitDate[2])}
