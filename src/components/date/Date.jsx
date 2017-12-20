@@ -16,13 +16,21 @@ class Date extends React.Component{
   render(){
     return (
       <div className={this.props.className}>
+        {this.prepareDate(
+          this.props.year,
+          this.props.month,
+          this.props.day
+        )}
       </div>
     )
   }
 }
 
 Date.propTypes = {
-
+  className: PropTypes.string,
+  year: PropTypes.number,
+  month: PropTypes.number,
+  day: PropTypes.number,
 }
 
 export default Date
