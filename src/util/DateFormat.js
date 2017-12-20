@@ -33,6 +33,14 @@ class DateFormat{
     return result
   }
 
+  formatDigit(digit){
+    digit = digit.toString()
+    if(digit.length === 1){
+      digit = "0" + digit
+    }
+    return digit
+  }
+
 }
 
 DateFormat.year = "year"

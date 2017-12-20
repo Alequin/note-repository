@@ -3,9 +3,35 @@ import DateFormat from "./../../util/DateFormat.js"
 
 describe("Date format", function(){
 
-  it("can format date -- yyyy-mm-dd", () => {
-    const date = new DateFormat(2017, 5, 1)
+  let date
 
+  beforeEach(() => {
+    date = new DateFormat(2017, 5, 1)
+  })
+
+  it("can format single digit values", () => {
+    let expected = "01"
+    let result = date.formatDigit(1)
+    assert.strictEqual(result, expected)
+
+    expected = "05"
+    result = date.formatDigit(5)
+    assert.strictEqual(result, expected)
+
+    expected = "09"
+    result = date.formatDigit(9)
+    assert.strictEqual(result, expected)
+
+    expected = "15"
+    result = date.formatDigit(15)
+    assert.strictEqual(result, expected)
+
+    expected = "27"
+    result = date.formatDigit(27)
+    assert.strictEqual(result, expected)
+  })
+
+  it("can format date -- yyyy-mm-dd", () => {
     let expected = "2017-05-01"
     let result = date.toString([
       DateFormat.year,
