@@ -1,13 +1,11 @@
 import PostgresDatabaseConstructor from "./../services/PostgresDatabaseConstructor"
 import PostgresConnector from "./../services/PostgresConnector.js"
 import createNotesTable from "./createNotesTable.js"
+import {databaseInfo} from "./../settings.js"
 
-const databaseName = "noteRepo"
-const db = new PostgresConnector(
-  "postgres://localhost/" + databaseName
-)
+const db = new PostgresConnector(databaseInfo.path)
 
-const dbBuilder = new PostgresDatabaseConstructor(databaseName, true)
+const dbBuilder = new PostgresDatabaseConstructor(databaseInfo.name, true)
 dbBuilder.dropDb()
   .then(() => {
     return dbBuilder.createDb()
