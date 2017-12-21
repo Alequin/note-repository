@@ -19,7 +19,7 @@ PostgresConnector.prototype.connect = function (sql) {
       })
     })
   })
-  
+
   return promise
 }
 
