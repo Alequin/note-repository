@@ -3,20 +3,30 @@ import accessDatabase from "./../../database/accessDatabase.js"
 import notesTableSeeds from "./notesTableSeeds.js"
 import tagsTableSeeds from "./tagsTableSeeds.js"
 import sourcesTableSeeds from "./sourcesTableSeeds.js"
+import makeNoteTagsTableSeeds from "./noteTagsTableSeeds.js"
 
 import {
   notesSchema,
   tagsSchema,
   sourcesSchema,
+  noteTagsSchema
 } from "./../../database/schema.js"
 
 function run(){
   seed(notesInsertCommand(), notesInsertValues())
     .then(() => {
+      console.log("Seed complete: notes tables");
       return seed(tagsInsertCommand(), tagsInsertValues())
     })
     .then(() => {
+      console.log("Seed complete: tags tables");
       return seed(sourcesInsertCommand(), sourcesInsertValues())
+    })
+    .then(() => {
+      console.log("Seed complete: source tables");
+      return noteTagsInsertValues().then((values) => {
+        return seed(noteTagsInsertCommand(), values)
+      })
     })
     .catch((err) => {
       console.log(err);
@@ -82,6 +92,27 @@ function sourcesInsertValues(){
   return sourcesTableSeeds.map((source) => {
     return [source.name, source.type, source.location]
   })
+}
+
+function noteTagsInsertCommand(){
+  const noteTagsColumns = noteTagsSchema.columns
+  return (
+    `INSERT INTO ${noteTagsSchema.name}
+    (${noteTagsColumns[1].name},
+     ${noteTagsColumns[2].name})
+    VALUES
+    ($1, $2);`
+  )
+}
+
+function noteTagsInsertValues(){
+  return makeNoteTagsTableSeeds()
+    .then((rows) => {
+      const values = rows.map((noteTag) => {
+        return [noteTag.noteId, noteTag.tagId]
+      })
+      return Promise.resolve(values)
+    })
 }
 
 run()
