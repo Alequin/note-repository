@@ -108,10 +108,9 @@ function noteTagsInsertCommand(){
 function noteTagsInsertValues(){
   return makeNoteTagsTableSeeds()
     .then((rows) => {
-      const values = rows.map((noteTag) => {
+      return rows.map((noteTag) => {
         return [noteTag.noteId, noteTag.tagId]
       })
-      return Promise.resolve(values)
     })
 }
 
