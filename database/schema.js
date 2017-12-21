@@ -18,7 +18,7 @@ export const tagsSchema = {
 }
 
 export const noteTagsSchema ={
-  name: "noteTags",
+  name: "note_tags",
   columns: [
     {name: "id", type: "SERIAL8"},
     {name: "note_id", type: "SERIAL8"},
