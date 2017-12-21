@@ -2,7 +2,7 @@ import {notesSchema} from "./../database/schema.js"
 
 function createNotesTable(db){
   const notesColumns = notesSchema.columns
-  const createNotesTable = (
+  const createTable = (
     `CREATE TABLE ${notesSchema.name} (
       ${notesColumns[0].name} ${notesColumns[0].type} PRIMARY KEY,
       ${notesColumns[1].name} ${notesColumns[1].type},
@@ -11,7 +11,7 @@ function createNotesTable(db){
       ${notesColumns[4].name} ${notesColumns[4].type}
     );`
   )
-  return db.connect(createNotesTable)
+  return db.connect(createTable)
 }
 
 export default createNotesTable
