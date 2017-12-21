@@ -1,14 +1,15 @@
 import {notesSchema} from "./../database/schema.js"
 
-function createNotesTable (db){
+function createNotesTable(db){
   const notesColumns = notesSchema.columns
-  const createNoteTable = (
+  const createNotesTable = (
     `CREATE TABLE ${notesSchema.name} (
-      ${notesColumns.id.name} ${notesColumns.id.type} PRIMARY KEY,
-      ${notesColumns.title.name} ${notesColumns.title.type}
+      ${notesColumns[0].name} ${notesColumns[0].type} PRIMARY KEY,
+      ${notesColumns[1].name} ${notesColumns[1].type},
+      ${notesColumns[2].name} ${notesColumns[2].type}
     );`
   )
-  return db.connect(createNoteTable)
+  return db.connect(createNotesTable)
 }
 
 export default createNotesTable
