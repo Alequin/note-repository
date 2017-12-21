@@ -1,9 +1,12 @@
-import PostgresDatabaseConstructor from "./../services/PostgresDatabaseConstructor"
-import PostgresConnector from "./../services/PostgresConnector.js"
+import PostgresDatabaseConstructor from "./../../services/PostgresDatabaseConstructor"
+import PostgresConnector from "./../../services/PostgresConnector.js"
+
 import createNotesTable from "./createNotesTable.js"
 import createTagsTable from "./createTagsTable.js"
 import createNoteTagsTable from "./createNoteTagsTable.js"
-import {databaseInfo} from "./../settings.js"
+import createSourcesTable from "./createSourcesTable.js"
+
+import {databaseInfo} from "./../../settings.js"
 
 const db = new PostgresConnector(databaseInfo.path)
 
@@ -25,4 +28,13 @@ dbBuilder.dropDb()
   .then(() => {
     const promise = createNoteTagsTable(db)
     console.log("Note Tags table created")
+    return promise
+  })
+  .then(() => {
+    const promise = createSourcesTable(db)
+    console.log("Sources table created")
+    return promise
+  })
+  .catch((err) => {
+    console.log(err);
   })
