@@ -1,5 +1,5 @@
 import PostgresDatabaseConstructor from "./../services/PostgresDatabaseConstructor"
-const PostgresConnector = require("./../services/PostgresConnector.js")
+import PostgresConnector from "./../services/PostgresConnector.js"
 const schema = require("./../database/schema.js")
 
 const createNotesTable = require("./createNotesTable.js")

@@ -1,27 +1,29 @@
-const pg = require('pg')
+import pg from 'pg'
 
-function PostgresConnector(path){
-  this.connectionString = path
-}
+class PostgresConnector{
+  constructor(path){
+    this.path = path
+  }
 
-PostgresConnector.prototype.connect = function (command, values) {
-  // https://node-postgres.com/guides/upgrading
-  var pool = new pg.Pool({
-      connectionString: this.connectionString
-  })
+  connect(command, values) {
+    // https://node-postgres.com/guides/upgrading
+    const pool = new pg.Pool({
+        connectionString: this.path
+    })
 
-  const promise = new Promise((resolve, reject) => {
-    pool.connect().then((client) => {
-      client.query(command, values, (err, res) => {
-        values = values || []
-        if (err) reject(err)
-        else resolve(res)
-        client.end()
+    const promise = new Promise((resolve, reject) => {
+      pool.connect().then((client) => {
+        client.query(command, values, (err, res) => {
+          values = values || []
+          if (err) reject(err)
+          else resolve(res)
+          client.end()
+        })
       })
     })
-  })
+    return promise
+  }
 
-  return promise
 }
 
-module.exports = PostgresConnector
+export default PostgresConnector
