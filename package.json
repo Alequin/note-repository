@@ -7,7 +7,7 @@
     "start": "node dist/server.js",
     "build-database": "node dist/scripts/createDatabase.js",
     "build-webpack": "webpack -w",
-    "build-es6": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src,./build --copy-files",
+    "build-es6": "rm -rf dist; babel ./*.js --out-dir dist/ --ignore webpack.config.js; babel ./scripts/buildDatabase/*.js --out-dir dist/; babel ./services/*.js --out-dir dist/; babel ./database/*.js --out-dir dist/; babel ./controllers/*.js --out-dir dist/;",
     "test": "jest"
   },
   "repository": {
