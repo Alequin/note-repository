@@ -11,35 +11,31 @@ import {databaseInfo} from "./../../settings.js"
 
 const db = new PostgresConnector(databaseInfo.path)
 
+const makeTable = (database, name, tableBuilder) => {
+  const promise = tableBuilder(database)
+  console.log(name + " table created")
+  return promise
+}
+
 const dbBuilder = new PostgresDatabaseConstructor(databaseInfo.name, true)
 dbBuilder.dropDb()
   .then(() => {
     return dbBuilder.createDb()
   })
   .then(() => {
-    const promise = createNotesTable(db)
-    console.log("Notes table created")
-    return promise
+    return makeTable(db, "Notes", createNotesTable)
   })
   .then(() => {
-    const promise = createTagsTable(db)
-    console.log("Tags table created")
-    return promise
+    return makeTable(db, "Tags", createTagsTable)
   })
   .then(() => {
-    const promise = createNoteTagsTable(db)
-    console.log("Note Tags table created")
-    return promise
+    return makeTable(db, "Note Tags", createNoteTagsTable)
   })
   .then(() => {
-    const promise = createSourcesTable(db)
-    console.log("Sources table created")
-    return promise
+    return makeTable(db, "Source", createSourcesTable)
   })
   .then(() => {
-    const promise = createNoteSourcesTable(db)
-    console.log("Note Sources table created")
-    return promise
+    return makeTable(db, "Note Source", createNoteSourcesTable)
   })
   .catch((err) => {
     console.log(err);
