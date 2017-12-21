@@ -1,16 +1,28 @@
 import accessDatabase from "./../../database/accessDatabase.js"
 import {newIntegerDice} from "./../../services/IntegerDice.js"
 
-function makeNoteTagsRows(){
+export const makeNoteTagsSeeds = function(){
+  return makeRelationshipRows("notes", "tags", noteTagsRowBuilder)
+}
+
+export const makeNoteSourcesSeeds = function(){
+  return makeRelationshipRows("notes", "sources", noteSourcesRowBuilder)
+}
+
+function makeRelationshipRows(table1, table2, rowBuilder){
   const promises = [
-    accessDatabase.connect("SELECT * FROM notes;"),
-    accessDatabase.connect("SELECT * FROM tags;")
+    accessDatabase.connect(`SELECT * FROM ${table1};`),
+    accessDatabase.connect(`SELECT * FROM ${table2};`)
   ]
   const promise = Promise.all(promises)
     .then((results) => {
-      const notes = results[0].rows
-      const tags = results[1].rows
-      return Promise.resolve(buildSeeds(notes, tags))
+      return Promise.resolve(
+        buildSeeds(
+          results[0].rows,
+          results[1].rows,
+          rowBuilder
+        )
+      )
     }).catch((err) => {
       console.log(err)
     })
@@ -18,27 +30,39 @@ function makeNoteTagsRows(){
   return promise
 }
 
-function buildSeeds(notes, tags){
-  let noteTagsSeeds = []
-  for(let note of notes){
-    const rows = newRowsForNote(note, tags)
-    noteTagsSeeds = noteTagsSeeds.concat(rows)
+function buildSeeds(table1, table2, rowBuilder){
+  let seeds = []
+  for(let element of table1){
+    const rows = newRows(element, table2, rowBuilder)
+    seeds = seeds.concat(rows)
   }
-  return noteTagsSeeds
+  return seeds
 }
 
-function newRowsForNote(note, tags){
+function newRows(table1, table2, rowBuilder){
   const rows = []
 
-  const tagsDie = newIntegerDice(0, tags.length-1)
+  const die = newIntegerDice(0, table2.length-1)
   const loop = newIntegerDice(1, 4).roll()
   for(let j=0; j<loop; j++){
-    rows.push({
-      noteId: note.id,
-      tagId: tags[tagsDie.roll()].id
-    })
+    const val = table2[die.roll()].id
+    rows.push(rowBuilder(table1.id, val))
   }
   return rows
 }
 
-export default makeNoteTagsRows
+function noteTagsRowBuilder(noteId, tagId){
+  const row = {
+    noteId: noteId,
+    tagId: tagId
+  }
+  return row
+}
+
+function noteSourcesRowBuilder(noteId, sourceId){
+  const row = {
+    noteId: noteId,
+    sourceId: sourceId
+  }
+  return row
+}
