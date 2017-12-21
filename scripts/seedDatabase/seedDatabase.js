@@ -37,13 +37,13 @@ function seed(command, values){
 function notesInsertCommand(){
   const notesColumns = notesSchema.columns
   return (
-    `INSERT INTO ${notesSchema.name} `+
-    `(${notesColumns[1].name},
-      ${notesColumns[2].name},
-      ${notesColumns[3].name},
-      ${notesColumns[4].name}) `+
-    "VALUES "+
-    `($1, $2, $3, $4);`
+    `INSERT INTO ${notesSchema.name}
+    (${notesColumns[1].name},
+     ${notesColumns[2].name},
+     ${notesColumns[3].name},
+     ${notesColumns[4].name})
+    VALUES
+    ($1, $2, $3, $4);`
   )
 }
 
@@ -56,10 +56,10 @@ function notesInsertValues(){
 function tagsInsertCommand(){
   const tagsColumns = tagsSchema.columns
   return (
-    `INSERT INTO ${tagsSchema.name} `+
-    `(${tagsColumns[1].name})`+
-    "VALUES "+
-    `($1);`
+    `INSERT INTO ${tagsSchema.name}
+    (${tagsColumns[1].name})
+    VALUES
+    ($1);`
   )
 }
 
@@ -72,12 +72,12 @@ function tagsInsertValues(){
 function sourcesInsertCommand(){
   const sourcesColumns = sourcesSchema.columns
   return (
-    `INSERT INTO ${sourcesSchema.name} `+
-    `(${sourcesColumns[1].name},
-      ${sourcesColumns[2].name},
-      ${sourcesColumns[3].name})`+
-    "VALUES "+
-    `($1, $2, $3);`
+    `INSERT INTO ${sourcesSchema.name}
+    (${sourcesColumns[1].name},
+     ${sourcesColumns[2].name},
+     ${sourcesColumns[3].name})
+    VALUES
+    ($1, $2, $3);`
   )
 }
 
