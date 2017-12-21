@@ -1,8 +1,0 @@
-alias strt="npm start"
-alias tst="npm test"
-alias bld="npm run build"
-alias to-git="open https://github.com/Alequin/note-repository"
-
-alias clear-project-aliases="unalias tst bld strt to-git"
-
-echo "Project aliases loaded"
