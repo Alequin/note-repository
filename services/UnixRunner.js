@@ -8,21 +8,22 @@ function runCommand(command){
         stdout: stdout,
         stderr: stderr,
         error: error,
-        log: logResult(stdout, stderr, error)
+        log: logResult(command, stdout, stderr, error)
       })
     })
   })
   return promise
 }
 
-function logResult(stdout, stderr, error){
+function logResult(cmd, stdout, stderr, error){
   return function(){
-    const divider = "--------------------"
-    console.log(divider);
+    const divider = " --------------------"
+    console.log(divider)
+    console.log(cmd)
     console.log("stdout: "+stdout)
     console.log("stderr: "+stderr)
     if(error){
-      console.log("error: "+error);
+      console.log("error: "+error)
     }
     console.log(divider);
   }
