@@ -3,13 +3,17 @@ import accessDatabase from "./../../database/accessDatabase.js"
 import notesTableSeeds from "./notesTableSeeds.js"
 import tagsTableSeeds from "./tagsTableSeeds.js"
 import sourcesTableSeeds from "./sourcesTableSeeds.js"
-import makeNoteTagsTableSeeds from "./noteTagsTableSeeds.js"
+import {
+  makeNoteTagsSeeds,
+  makeNoteSourcesSeeds
+} from "./relationshipTablesSeeds.js"
 
 import {
   notesSchema,
   tagsSchema,
   sourcesSchema,
-  noteTagsSchema
+  noteTagsSchema,
+  noteSourcesSchema
 } from "./../../database/schema.js"
 
 function run(){
@@ -27,6 +31,15 @@ function run(){
       return noteTagsInsertValues().then((values) => {
         return seed(noteTagsInsertCommand(), values)
       })
+    })
+    .then(() => {
+      console.log("Seed complete: note tags tables");
+      return noteSourcesInsertValues().then((values) => {
+        return seed(noteSourcesInsertCommand(), values)
+      })
+    })
+    .then(() => {
+      console.log("Seed complete: note source tables");
     })
     .catch((err) => {
       console.log(err);
@@ -106,10 +119,30 @@ function noteTagsInsertCommand(){
 }
 
 function noteTagsInsertValues(){
-  return makeNoteTagsTableSeeds()
+  return makeNoteTagsSeeds()
     .then((rows) => {
       return rows.map((noteTag) => {
         return [noteTag.noteId, noteTag.tagId]
+      })
+    })
+}
+
+function noteSourcesInsertCommand(){
+  const noteSourcesColumns = noteSourcesSchema.columns
+  return (
+    `INSERT INTO ${noteSourcesSchema.name}
+    (${noteSourcesColumns[1].name},
+     ${noteSourcesColumns[2].name})
+    VALUES
+    ($1, $2);`
+  )
+}
+
+function noteSourcesInsertValues(){
+  return makeNoteSourcesSeeds()
+    .then((rows) => {
+      return rows.map((noteSource) => {
+        return [noteSource.noteId, noteSource.sourceId]
       })
     })
 }
