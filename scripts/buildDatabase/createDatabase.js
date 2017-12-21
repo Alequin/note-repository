@@ -1,5 +1,5 @@
-import PostgresDatabaseConstructor from "./../../services/PostgresDatabaseConstructor"
-import PostgresConnector from "./../../services/PostgresConnector.js"
+import accessDatabase from "./../../database/accessDatabase.js"
+import constructDatabase from "./../../database/constructDatabase.js"
 
 import createNotesTable from "./createNotesTable.js"
 import createTagsTable from "./createTagsTable.js"
@@ -7,35 +7,30 @@ import createSourcesTable from "./createSourcesTable.js"
 import createNoteTagsTable from "./createNoteTagsTable.js"
 import createNoteSourcesTable from "./createNoteSourcesTable.js"
 
-import {databaseInfo} from "./../../settings.js"
-
-const db = new PostgresConnector(databaseInfo.path)
-
 const makeTable = (database, name, tableBuilder) => {
   const promise = tableBuilder(database)
   console.log(name + " table created")
   return promise
 }
 
-const dbBuilder = new PostgresDatabaseConstructor(databaseInfo.name, true)
-dbBuilder.dropDb()
+constructDatabase.dropDb()
   .then(() => {
-    return dbBuilder.createDb()
+    return constructDatabase.createDb()
   })
   .then(() => {
-    return makeTable(db, "Notes", createNotesTable)
+    return makeTable(accessDatabase, "Notes", createNotesTable)
   })
   .then(() => {
-    return makeTable(db, "Tags", createTagsTable)
+    return makeTable(accessDatabase, "Tags", createTagsTable)
   })
   .then(() => {
-    return makeTable(db, "Note Tags", createNoteTagsTable)
+    return makeTable(accessDatabase, "Note Tags", createNoteTagsTable)
   })
   .then(() => {
-    return makeTable(db, "Source", createSourcesTable)
+    return makeTable(accessDatabase, "Source", createSourcesTable)
   })
   .then(() => {
-    return makeTable(db, "Note Source", createNoteSourcesTable)
+    return makeTable(accessDatabase, "Note Source", createNoteSourcesTable)
   })
   .catch((err) => {
     console.log(err);
