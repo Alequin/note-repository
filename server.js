@@ -11,9 +11,10 @@ const PORT = 5000
 
 app.set('port', PORT);
 
-app.use(express.static('./build'));
+app.use(express.static('./build'))
 
-app.use(require("./controllers/index.js"))
+import router from "./controllers/index.js"
+app.use(router)
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', PORT)
