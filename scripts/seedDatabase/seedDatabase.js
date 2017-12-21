@@ -1,5 +1,4 @@
-import PostgresConnector from "./../../services/PostgresConnector.js"
-import {databaseInfo} from "./../../settings.js"
+import accessDatabase from "./../../database/accessDatabase.js"
 
 import notesTableSeeds from "./notesTableSeeds.js"
 import tagsTableSeeds from "./tagsTableSeeds.js"
@@ -10,8 +9,6 @@ import {
   tagsSchema,
   sourcesSchema,
 } from "./../../database/schema.js"
-
-const db = new PostgresConnector(databaseInfo.path)
 
 function run(){
   seed(notesInsertCommand(), notesInsertValues())
@@ -29,7 +26,7 @@ function run(){
 function seed(command, values){
   const promises = []
   for(let value of values){
-    promises.push(db.connect(command, value))
+    promises.push(accessDatabase.connect(command, value))
   }
   return Promise.all(promises)
 }
