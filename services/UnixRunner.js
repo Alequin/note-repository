@@ -1,5 +1,5 @@
 import sys from "util"
-import {exec} from 'child_process'
+import {exec} from "child_process"
 
 export function runCommand(command){
   const promise = new Promise((resolve, reject) => {
@@ -20,10 +20,10 @@ function logResult(cmd, stdout, stderr, error){
     const divider = "--------------------"
     console.log(
       `${divider}\n`+
-      "command: ${cmd}\n"+
-      "stdout: ${stdout}\n"+
-      "stderr: ${stderr}\n"+
-      `error: ${error ? error : "no error"}\n`+
+      `command: ${cmd}\n`+
+      `stdout: ${stdout}\n`+
+      `stderr: ${stderr}\n`+
+      `error: ${error ? error : `no error`}\n`+
       `${divider}`
     )
   }
