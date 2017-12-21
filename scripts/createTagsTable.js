@@ -1,14 +1,14 @@
 import {tagsSchema} from "./../database/schema.js"
 
-function createTags(db){
+function createTagsTable(db){
   const tagsColumns = tagsSchema.columns
-  const createNoteTable = (
+  const createTagsTable = (
     `CREATE TABLE ${tagsSchema.name} (
       ${tagsColumns[0].name} ${tagsColumns[0].type} PRIMARY KEY,
       ${tagsColumns[1].name} ${tagsColumns[1].type}
     );`
   )
-  return db.connect(createNoteTable)
+  return db.connect(createTagsTable)
 }
 
-export default createNotesTable
+export default createTagsTable
