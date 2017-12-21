@@ -1,4 +1,4 @@
-const runCommand = require("./../services/UnixRunner.js")
+import {runCommand} from "./../services/UnixRunner.js"
 
 function PostgresDatabase(name, logOutput){
   this.name = name

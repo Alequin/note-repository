@@ -1,7 +1,7 @@
-const sys = require('util')
-const exec = require('child_process').exec;
+import sys from "util"
+import {exec} from 'child_process'
 
-function runCommand(command){
+export function runCommand(command){
   const promise = new Promise((resolve, reject) => {
     const child = exec(command, function (error, stdout, stderr) {
       resolve({
@@ -28,5 +28,3 @@ function logResult(cmd, stdout, stderr, error){
     console.log(divider);
   }
 }
-
-module.exports = runCommand
