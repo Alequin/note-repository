@@ -1,4 +1,4 @@
-const DatabaseBuilder = require("./../services/PostgresDatabaseConstructor")
+import PostgresDatabaseConstructor from "./../services/PostgresDatabaseConstructor"
 const PostgresConnector = require("./../services/PostgresConnector.js")
 const schema = require("./../database/schema.js")
 
@@ -9,7 +9,7 @@ const db = new PostgresConnector(
   "postgres://localhost/" + databaseName
 )
 
-const dbBuilder = new DatabaseBuilder(databaseName, true)
+const dbBuilder = new PostgresDatabaseConstructor(databaseName, true)
 dbBuilder.dropDb()
   .then(() => {
     return dbBuilder.createDb()
