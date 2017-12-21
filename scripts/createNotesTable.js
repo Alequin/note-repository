@@ -1,4 +1,6 @@
-module.exports = function(db, notesSchema){
+import {notesSchema} from "./../database/schema.js"
+
+function createNotesTable (db){
   const notesColumns = notesSchema.columns
   const createNoteTable = (
     `CREATE TABLE ${notesSchema.name} (
@@ -8,3 +10,5 @@ module.exports = function(db, notesSchema){
   )
   return db.connect(createNoteTable)
 }
+
+export default createNotesTable

@@ -1,8 +1,6 @@
 import PostgresDatabaseConstructor from "./../services/PostgresDatabaseConstructor"
 import PostgresConnector from "./../services/PostgresConnector.js"
-const schema = require("./../database/schema.js")
-
-const createNotesTable = require("./createNotesTable.js")
+import createNotesTable from "./createNotesTable.js"
 
 const databaseName = "noteRepo"
 const db = new PostgresConnector(
@@ -15,7 +13,7 @@ dbBuilder.dropDb()
     return dbBuilder.createDb()
   })
   .then(() => {
-    const promise = createNotesTable(db, schema.notesTable)
+    const promise = createNotesTable(db)
     console.log("Notes table created");
     return promise
   })
