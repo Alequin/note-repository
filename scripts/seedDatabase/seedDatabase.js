@@ -3,10 +3,12 @@ import {databaseInfo} from "./../../settings.js"
 
 import notesTableSeeds from "./notesTableSeeds.js"
 import tagsTableSeeds from "./tagsTableSeeds.js"
+import sourcesTableSeeds from "./sourcesTableSeeds.js"
 
 import {
   notesSchema,
   tagsSchema,
+  sourcesSchema,
 } from "./../../database/schema.js"
 
 const db = new PostgresConnector(databaseInfo.path)
@@ -17,7 +19,7 @@ function run(){
       return seed(tagsInsertCommand(), tagsInsertValues())
     })
     .then(() => {
-      
+      return seed(sourcesInsertCommand(), sourcesInsertValues())
     })
     .catch((err) => {
       console.log(err);
@@ -64,6 +66,24 @@ function tagsInsertCommand(){
 function tagsInsertValues(){
   return tagsTableSeeds.map((tag) => {
     return [tag.name]
+  })
+}
+
+function sourcesInsertCommand(){
+  const sourcesColumns = sourcesSchema.columns
+  return (
+    `INSERT INTO ${sourcesSchema.name} `+
+    `(${sourcesColumns[1].name},
+      ${sourcesColumns[2].name},
+      ${sourcesColumns[3].name})`+
+    "VALUES "+
+    `($1, $2, $3);`
+  )
+}
+
+function sourcesInsertValues(){
+  return sourcesTableSeeds.map((source) => {
+    return [source.name, source.type, source.location]
   })
 }
 
