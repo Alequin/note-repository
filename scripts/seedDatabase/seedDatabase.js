@@ -11,40 +11,60 @@ import {
 
 const db = new PostgresConnector(databaseInfo.path)
 
-function seedNotesTable(){
+function run(){
+  seed(notesInsertCommand(), notesInsertValues())
+    .then(() => {
+      return seed(tagsInsertCommand(), tagsInsertValues())
+    })
+    .then(() => {
+      
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+}
+
+function seed(command, values){
+  const promises = []
+  for(let value of values){
+    promises.push(db.connect(command, value))
+  }
+  return Promise.all(promises)
+}
+
+function notesInsertCommand(){
   const notesColumns = notesSchema.columns
-  const promises = []
-  for(let note of notesTableSeeds){
-    const command = `INSERT INTO ${notesSchema.name} `+
-      `(${notesColumns[1].name},
-        ${notesColumns[2].name},
-        ${notesColumns[3].name},
-        ${notesColumns[4].name}) `+
-      "VALUES "+
-      `($1, $2, $3, $4);`
-    const values = [
-      note.title, note.summary, note.file, note.creationDate
-    ]
-    promises.push(db.connect(command, values))
-  }
-  return Promise.all(promises)
+  return (
+    `INSERT INTO ${notesSchema.name} `+
+    `(${notesColumns[1].name},
+      ${notesColumns[2].name},
+      ${notesColumns[3].name},
+      ${notesColumns[4].name}) `+
+    "VALUES "+
+    `($1, $2, $3, $4);`
+  )
 }
 
-function seedTagsTable(){
-  const tagsColumns = tagsSchema.columns
-  const promises = []
-  for(let tag of tagsTableSeeds){
-    const command = `INSERT INTO ${tagsSchema.name} `+
-      `(${tagsColumns[1].name})`+
-      "VALUES "+
-      `($1);`
-    const values = [tag.name]
-    promises.push(db.connect(command, values))
-  }
-  return Promise.all(promises)
-}
-
-seedNotesTable()
-  .then(() => {
-    return seedTagsTable()
+function notesInsertValues(){
+  return notesTableSeeds.map((note) => {
+    return [note.title, note.summary, note.file, note.creationDate]
   })
+}
+
+function tagsInsertCommand(){
+  const tagsColumns = tagsSchema.columns
+  return (
+    `INSERT INTO ${tagsSchema.name} `+
+    `(${tagsColumns[1].name})`+
+    "VALUES "+
+    `($1);`
+  )
+}
+
+function tagsInsertValues(){
+  return tagsTableSeeds.map((tag) => {
+    return [tag.name]
+  })
+}
+
+run()
