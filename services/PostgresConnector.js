@@ -4,7 +4,7 @@ function PostgresConnector(path){
   this.connectionString = path
 }
 
-PostgresConnector.prototype.connect = function (sql) {
+PostgresConnector.prototype.connect = function (command, values) {
   // https://node-postgres.com/guides/upgrading
   var pool = new pg.Pool({
       connectionString: this.connectionString
@@ -12,7 +12,8 @@ PostgresConnector.prototype.connect = function (sql) {
 
   const promise = new Promise((resolve, reject) => {
     pool.connect().then((client) => {
-      client.query(sql.command, sql.values, (err, res) => {
+      client.query(command, values, (err, res) => {
+        values = values || []
         if (err) reject(err)
         else resolve(res)
         client.end()
