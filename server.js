@@ -1,5 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import {serverVariables} from "./settings.js"
 const app = express()
 
 app.use(bodyParser.json());
@@ -7,7 +8,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-const PORT = 5000
+const PORT = serverVariables.port || 5000
 
 app.set('port', PORT);
 
