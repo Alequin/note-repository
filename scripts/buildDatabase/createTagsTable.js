@@ -1,4 +1,4 @@
-import {tagsSchema} from "./../database/schema.js"
+import {tagsSchema} from "./../../database/schema.js"
 
 function createTagsTable(db){
   const tagsColumns = tagsSchema.columns

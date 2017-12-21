@@ -1,4 +1,4 @@
-import {notesSchema} from "./../database/schema.js"
+import {notesSchema} from "./../../database/schema.js"
 
 function createNotesTable(db){
   const notesColumns = notesSchema.columns

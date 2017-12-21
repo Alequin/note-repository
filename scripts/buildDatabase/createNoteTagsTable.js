@@ -2,7 +2,7 @@ import {
   notesSchema,
   tagsSchema,
   noteTagsSchema
-} from "./../database/schema.js"
+} from "./../../database/schema.js"
 
 function createNoteTagsTable(db){
   const noteTagsColumns = noteTagsSchema.columns
