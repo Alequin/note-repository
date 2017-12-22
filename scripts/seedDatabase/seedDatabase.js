@@ -58,10 +58,10 @@ function notesInsertCommand(){
   const notesColumns = notesSchema.columns
   return (
     `INSERT INTO ${notesSchema.name}
-    (${notesColumns[1].name},
-     ${notesColumns[2].name},
-     ${notesColumns[3].name},
-     ${notesColumns[4].name})
+    (${notesColumns.title.name},
+     ${notesColumns.summary.name},
+     ${notesColumns.file.name},
+     ${notesColumns.creationDate.name})
     VALUES
     ($1, $2, $3, $4);`
   )
@@ -77,7 +77,7 @@ function tagsInsertCommand(){
   const tagsColumns = tagsSchema.columns
   return (
     `INSERT INTO ${tagsSchema.name}
-    (${tagsColumns[1].name})
+    (${tagsColumns.name.name})
     VALUES
     ($1);`
   )
@@ -93,9 +93,9 @@ function sourcesInsertCommand(){
   const sourcesColumns = sourcesSchema.columns
   return (
     `INSERT INTO ${sourcesSchema.name}
-    (${sourcesColumns[1].name},
-     ${sourcesColumns[2].name},
-     ${sourcesColumns[3].name})
+    (${sourcesColumns.name.name},
+     ${sourcesColumns.type.name},
+     ${sourcesColumns.location.name})
     VALUES
     ($1, $2, $3);`
   )
@@ -111,8 +111,8 @@ function noteTagsInsertCommand(){
   const noteTagsColumns = noteTagsSchema.columns
   return (
     `INSERT INTO ${noteTagsSchema.name}
-    (${noteTagsColumns[1].name},
-     ${noteTagsColumns[2].name})
+    (${noteTagsColumns.noteId.name},
+     ${noteTagsColumns.tagId.name})
     VALUES
     ($1, $2);`
   )
@@ -131,8 +131,8 @@ function noteSourcesInsertCommand(){
   const noteSourcesColumns = noteSourcesSchema.columns
   return (
     `INSERT INTO ${noteSourcesSchema.name}
-    (${noteSourcesColumns[1].name},
-     ${noteSourcesColumns[2].name})
+    (${noteSourcesColumns.noteId.name},
+     ${noteSourcesColumns.sourceId.name})
     VALUES
     ($1, $2);`
   )

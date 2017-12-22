@@ -4,8 +4,8 @@ function createTagsTable(db){
   const tagsColumns = tagsSchema.columns
   const createTable = (
     `CREATE TABLE ${tagsSchema.name} (
-      ${tagsColumns[0].name} ${tagsColumns[0].type} PRIMARY KEY,
-      ${tagsColumns[1].name} ${tagsColumns[1].type}
+      ${tagsColumns.id.name} ${tagsColumns.id.type} PRIMARY KEY,
+      ${tagsColumns.name.name} ${tagsColumns.name.type}
     );`
   )
   return db.connect(createTable)

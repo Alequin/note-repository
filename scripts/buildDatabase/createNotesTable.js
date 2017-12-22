@@ -4,11 +4,11 @@ function createNotesTable(db){
   const notesColumns = notesSchema.columns
   const createTable = (
     `CREATE TABLE ${notesSchema.name} (
-      ${notesColumns[0].name} ${notesColumns[0].type} PRIMARY KEY,
-      ${notesColumns[1].name} ${notesColumns[1].type},
-      ${notesColumns[2].name} ${notesColumns[2].type},
-      ${notesColumns[3].name} ${notesColumns[3].type},
-      ${notesColumns[4].name} ${notesColumns[4].type}
+      ${notesColumns.id.name} ${notesColumns.id.type} PRIMARY KEY,
+      ${notesColumns.title.name} ${notesColumns.title.type},
+      ${notesColumns.summary.name} ${notesColumns.summary.type},
+      ${notesColumns.file.name} ${notesColumns.file.type},
+      ${notesColumns.creationDate.name} ${notesColumns.creationDate.type}
     );`
   )
   return db.connect(createTable)
