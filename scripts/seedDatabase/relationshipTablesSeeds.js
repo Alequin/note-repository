@@ -1,12 +1,17 @@
 import accessDatabase from "./../../database/accessDatabase.js"
 import {newIntegerDice} from "./../../services/IntegerDice.js"
+import {
+  notesSchema,
+  tagsSchema,
+  sourcesSchema,
+} from "./../../database/schema.js"
 
 export const makeNoteTagsSeeds = function(){
-  return makeRelationshipRows("notes", "tags", noteTagsRowBuilder)
+  return makeRelationshipRows(notesSchema.name, tagsSchema.name, noteTagsRowBuilder)
 }
 
 export const makeNoteSourcesSeeds = function(){
-  return makeRelationshipRows("notes", "sources", noteSourcesRowBuilder)
+  return makeRelationshipRows(notesSchema.name, sourcesSchema.name, noteSourcesRowBuilder)
 }
 
 function makeRelationshipRows(table1, table2, rowBuilder){
