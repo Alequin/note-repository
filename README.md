@@ -11,7 +11,9 @@
   }
 
   export const serverVariables = {
-    port: 5000
+    port: 5000,
+    authTitle: "title",
+    authKey: "key"
   }
 ```
 
