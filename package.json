@@ -4,7 +4,7 @@
   "description": "**An application that, once run, asks for an numeric input (N) and outputs a multiplication table of (N) prime numbers**",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "npm run build-es6; node dist/server.js",
     "seed": "node dist/scripts/seedDatabase/seedDatabase.js",
     "build-database": "node dist/scripts/buildDatabase/createDatabase.js",
     "build-webpack": "webpack -w",
