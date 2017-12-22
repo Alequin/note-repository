@@ -1,6 +1,6 @@
 
 const config = {
-	entry: "./src/App.js",
+	entry: "./client/App.js",
 	output: {
 		path: `${__dirname}/build`,
 		filename: 'MainBundle.js'
