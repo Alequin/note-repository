@@ -1,6 +1,6 @@
 import express from 'express'
 import requestAuth from "./../services/requestAuth.js"
-import {requestSummaryNotesWithTags} from "./../models/repos/notesRepo.js"
+import {requestSummaryNotesWithTags} from "./../models/repos/summaryNotesRepo.js"
 
 const router = new express.Router();
 
