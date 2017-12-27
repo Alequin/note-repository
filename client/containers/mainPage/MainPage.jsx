@@ -32,9 +32,16 @@ class MainPage extends React.Component{
   }
 
   onClickSummaryNote(selected){
-    this.setState({
-      pageToShow: Pages.view,
-      currentNote: selected,
+    axios({
+      method: 'get',
+      url: `/notes/${selected.id}`,
+      headers: requestHeaders.auth
+    }).then((note) => {
+      console.log(note.data);
+      this.setState({
+        pageToShow: Pages.view,
+        currentNote: note.data,
+      })
     })
   }
 
