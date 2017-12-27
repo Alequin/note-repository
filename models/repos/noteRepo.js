@@ -6,10 +6,12 @@ export const requestNoteById = function(id){
 }
 
 export const mapNoteRowToModel = function(noteData, noteSchema){
+  const {columns} = noteSchema
   return new Note({
-    id: noteData[noteSchema.columns.id.name],
-    title: noteData[noteSchema.columns.title.name],
-    summary: noteData[noteSchema.columns.summary.name],
-    file: noteData[noteSchema.columns.file.name],
+    id: noteData[columns.id.name],
+    title: noteData[columns.title.name],
+    summary: noteData[columns.summary.name],
+    file: noteData[columns.file.name],
+    creationDate: noteData[columns.creationDate.name]
   })
 }

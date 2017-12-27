@@ -10,14 +10,16 @@ describe("NoteRepo functions", function(){
       col4: 0,
       col1: "one",
       col2: "two",
-      col3: "three"
+      col3: "three",
+      col5: "four"
     }
     const schema ={
       columns: {
         id: {name: "col4"},
         title: {name: "col1"},
         summary: {name: "col2"},
-        file: {name: "col3"}
+        file: {name: "col3"},
+        creationDate: {name: "col5"}
       }
     }
 
@@ -37,6 +39,10 @@ describe("NoteRepo functions", function(){
 
     expected = "three"
     result = note.file
+    assert.strictEqual(result, expected)
+
+    expected = "four"
+    result = note.creationDate
     assert.strictEqual(result, expected)
   })
 
