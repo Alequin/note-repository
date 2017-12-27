@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import {serverVariables} from "./settings.js"
 const app = express()
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }));
