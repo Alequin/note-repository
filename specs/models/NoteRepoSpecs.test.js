@@ -7,20 +7,28 @@ describe("NoteRepo functions", function(){
 
   it("can map results from note table to model", () => {
     const results = {
+      col4: 0,
       col1: "one",
       col2: "two",
       col3: "three"
     }
     const schema ={
-      title: {name: "col1"},
-      summary: {name: "col2"},
-      file: {name: "col3"}
+      columns: {
+        id: {name: "col4"},
+        title: {name: "col1"},
+        summary: {name: "col2"},
+        file: {name: "col3"}
+      }
     }
 
     const note = mapNoteRowToModel(results, schema)
 
-    let expected = "one"
-    let result = note.title
+    let expected = 0
+    let result = note.id
+    assert.strictEqual(result, expected)
+
+    expected = "one"
+    result = note.title
     assert.strictEqual(result, expected)
 
     expected = "two"
