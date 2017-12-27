@@ -15,6 +15,13 @@
     authTitle: "title",
     authKey: "key"
   }
+
+  const requestHeaders = {
+    auth: {}
+  }
+  requestHeaders.auth[serverVariables.authTitle] = serverVariables.authKey
+  export {requestHeaders}
+
 ```
 
 * Activate helper aliases (not required):

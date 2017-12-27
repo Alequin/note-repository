@@ -4,7 +4,7 @@ import SelectionPage from "./../selectionPage/SelectionPage.jsx"
 import ViewPage from "./../viewPage/ViewPage.jsx"
 import Pages from "./Pages.js"
 import axios from "axios"
-import {serverVariables} from "./../../../settings.js"
+import {requestHeaders} from "./../../../settings.js"
 
 //DEV TO REMOVE
 import {mockNoteSummeries2, mockFullNote1} from "./../../dev/fakeSummaryNotesData.js"
@@ -22,12 +22,10 @@ class MainPage extends React.Component{
   }
 
   componentDidMount(){
-    const header = {}
-    header[serverVariables.authTitle] = serverVariables.authKey
     axios({
       method: 'get',
       url: '/notes',
-      headers: header
+      headers: requestHeaders.auth
     }).then((notes) => {
       this.setState({noteSummaries: notes.data})
     })
