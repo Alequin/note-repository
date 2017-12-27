@@ -29,4 +29,21 @@ describe("Note", function(){
     let result = note.tags
     assert.deepEqual(result, expected)
   })
+
+  it("can set sources", () => {
+    const sources = ["one", "two", "three"]
+    note.setSources(sources)
+
+    let expected = sources
+    let result = note.sources
+    assert.deepEqual(result, expected)
+  })
+
+  it("can set sources with null input", () => {
+    note.setSources(null)
+
+    let expected = []
+    let result = note.sources
+    assert.deepEqual(result, expected)
+  })
 })

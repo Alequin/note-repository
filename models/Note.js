@@ -14,6 +14,10 @@ class Note{
   setTags(tags){
     this.tags = tags || []
   }
+
+  setSources(sources){
+    this.sources = sources || []
+  }
 }
 
 export default Note
