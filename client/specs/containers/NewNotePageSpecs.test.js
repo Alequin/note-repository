@@ -16,14 +16,14 @@ describe("View page", function(){
     let expected = (
       <div>
         <h2>Title</h2>
-        <input
-          type="text"
+        <textarea
           value=""
           onChange={func}
-          style={{height: "15px"}}/>
+          rows={5}
+        />
       </div>
     )
-    let result = page.renderInputSection("Title", "", func, "15px")
+    let result = page.renderInputSection("Title", "", func, 5)
     assert.deepEqual(result, expected)
   })
 })

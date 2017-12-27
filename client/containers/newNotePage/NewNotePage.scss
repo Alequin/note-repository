@@ -12,8 +12,9 @@
     text-align: center;
   }
 
-  input[type="text"]{
+  textarea{
     width: 80%;
+    resize: none;
     text-align: center;
     padding: 5px;
   }

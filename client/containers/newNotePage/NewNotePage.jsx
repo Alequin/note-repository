@@ -14,6 +14,7 @@ class NewNotePAge extends React.Component{
     super(props)
 
     this.onChangeTitleText = this.onChangeTitleText.bind(this)
+    this.onChangeSummaryText = this.onChangeSummaryText.bind(this)
     this.onSelectFile = this.onSelectFile.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
 
@@ -30,6 +31,12 @@ class NewNotePAge extends React.Component{
   onChangeTitleText(event){
     this.setState({
       title: event.target.value
+    })
+  }
+
+  onChangeSummaryText(event){
+    this.setState({
+      summary: event.target.value
     })
   }
 
@@ -56,15 +63,15 @@ class NewNotePAge extends React.Component{
     })
   }
 
-  renderInputSection(header, value, onChange, inputHeight){
+  renderInputSection(header, value, onChange, rows){
     return (
       <div>
         <h2>{header}</h2>
-        <input
-          type="text"
+        <textarea
           value={value}
           onChange={onChange}
-          style={{height: inputHeight}}/>
+          rows={rows}
+        />
       </div>
     )
   }
@@ -74,8 +81,21 @@ class NewNotePAge extends React.Component{
       <div className="new-note-page-frame">
         <div className="page-tile central-input-frame">
           {
-            this.renderTitleInput(
-              this.state.title, this.onChangeTitleText
+            this.renderInputSection(
+              "Title",
+              this.state.title,
+              this.onChangeTitleText,
+              2
+            )
+          }
+        </div>
+        <div className="page-tile central-input-frame">
+          {
+            this.renderInputSection(
+              "Summary",
+              this.state.summary,
+              this.onChangeSummaryText,
+              6
             )
           }
         </div>
