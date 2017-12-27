@@ -41,7 +41,9 @@ export const requestSummaryNotes = function(){
       ${notesCols.id.name},
       ${notesCols.title.name},
       ${notesCols.summary.name},
-      ${notesCols.creationDate.name}
+      TO_CHAR(
+        ${notesCols.creationDate.name} :: DATE, 'yyyy-mm-dd'
+      ) AS ${notesCols.creationDate.name}
     FROM ${notes};`
   ).then((notes) => {
     notes = notes.rows
