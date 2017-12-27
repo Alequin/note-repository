@@ -6,7 +6,7 @@ class Note{
     this.creationDate = options.creationDate
     this.summary = options.summary
     this.file = options.file
-    this.content = options.content
+    this.content = options.content || ""
     this.tags = options.tags || []
     this.sources = options.sources || []
   }
