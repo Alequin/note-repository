@@ -8,7 +8,7 @@
     "seed": "node dist/scripts/seedDatabase/seedDatabase.js",
     "build-database": "node dist/scripts/buildDatabase/createDatabase.js",
     "build-webpack": "webpack -w",
-    "build-es6": "rm -rf dist; babel ./*.js --out-dir dist/ --ignore webpack.config.js; babel ./scripts/buildDatabase/*.js --out-dir dist/; babel ./scripts/seedDatabase/*.js --out-dir dist/; babel ./services/*.js --out-dir dist/; babel ./database/*.js --out-dir dist/; babel ./controllers/*.js --out-dir dist/; babel ./models/repos/*.js --out-dir dist/;",
+    "build-es6": "rm -rf dist; babel ./*.js --out-dir dist/ --ignore webpack.config.js; babel ./scripts/buildDatabase/*.js --out-dir dist/; babel ./scripts/seedDatabase/*.js --out-dir dist/; babel ./services/*.js --out-dir dist/; babel ./database/*.js --out-dir dist/; babel ./controllers/*.js --out-dir dist/; babel ./models/*.js --out-dir dist/; babel ./models/repos/*.js --out-dir dist/;",
     "test": "jest"
   },
   "repository": {
