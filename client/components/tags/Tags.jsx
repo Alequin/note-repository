@@ -23,7 +23,7 @@ class Tags extends React.Component{
     ]
     let key = 0
     for(let tag of tags){
-      elements.push(this.buildTag(key++, className, tag))
+      elements.push(this.buildTag(key++, className, tag.name))
     }
     return elements
   }

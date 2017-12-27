@@ -23,7 +23,11 @@ describe("Tags", function(){
   })
 
   it("can make tag elements", () => {
-    const tagValues = ["tag1", "tag2", "tag3"]
+    const tagValues = [
+      {name:"tag1"},
+      {name:"tag2"},
+      {name:"tag3"}
+    ]
 
     let expected = [
       <span key="-1" className="note-summary-tag">Tags:</span>,
