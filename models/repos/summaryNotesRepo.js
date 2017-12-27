@@ -1,5 +1,6 @@
 import accessDatabase from "./../../database/accessDatabase.js"
-import {attachTagsToNote} from "./tagRepo.js"
+import {findTagsOfNote} from "./tagRepo.js"
+import {mapNoteRowToModel} from "./noteRepo.js"
 import {
   notesSchema,
   tagsSchema,
@@ -8,10 +9,15 @@ import {
 
 export const requestSummaryNotesWithTags = function(){
   return requestSummaryNotes()
-    .then((results) => {
+    .then((notes) => {
       const promises = []
-      for(let note of results.rows){
-        promises.push(attachTagsToNote(note))
+      for(let note of notes){
+        promises.push(
+          findTagsOfNote(note).then((tags) => {
+            note.setTags(tags)
+            return note
+          })
+        )
       }
       return Promise.all(promises)
     })
@@ -34,5 +40,10 @@ export const requestSummaryNotes = function(){
       ${notesCols.summary.name},
       ${notesCols.creationDate.name}
     FROM ${notes};`
-  )
+  ).then((notes) => {
+    notes = notes.rows
+    return notes.map((note) => {
+      return mapNoteRowToModel(note, notesSchema)
+    })
+  })
 }
