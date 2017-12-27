@@ -7,10 +7,15 @@ class Nav extends React.Component{
   constructor(props){
     super(props)
     this.onClickHomeLink = this.onClickHomeLink.bind(this)
+    this.onClickNewNoteLink = this.onClickNewNoteLink.bind(this)
   }
 
   onClickHomeLink(){
     this.props.onClickNavBarLink(navOptions.home)
+  }
+
+  onClickNewNoteLink(){
+    this.props.onClickNavBarLink(navOptions.newNote)
   }
 
   render(){
@@ -27,7 +32,7 @@ class Nav extends React.Component{
           <div className="nav-buttons-frame">
             <div>
               <a onClick={this.onClickHomeLink}>Home</a>
-              <a href="#">New Note</a>
+              <a onClick={this.onClickNewNoteLink}>New Note</a>
             </div>
             <div>
               <a href="#">Select Filter Tags</a>

@@ -12,7 +12,6 @@ export const requestFullNoteById = function(id){
       return note.loadContent()
     })
     .then((note) => {
-      console.log("note:", note);
       return attachTagsToNote(note)
     })
     .then((note) => {
