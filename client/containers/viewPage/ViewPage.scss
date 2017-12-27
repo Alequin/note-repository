@@ -1,14 +1,6 @@
 @import "./../../PageWidth.scss";
 
-$section-padding: 10px;
-
 .view-page-frame{
   width: $page-width;
   margin: auto;
-
-  .view-page-tile{
-    background-color: white;
-    padding: $section-padding;
-    margin: 10px 0;
-  }
 }

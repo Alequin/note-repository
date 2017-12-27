@@ -52,15 +52,20 @@ class NewNotePAge extends React.Component{
   render(){
     return (
       <div className="new-note-page-frame">
-        <input
-          onChange={this.onSelectFile}
-          type="file"
-        />
-        <input
-          value="Submit"
-          type="submit"
-          onClick={this.onSubmit}
-        />
+        <div className="page-tile central-input-frame">
+          <input
+            className="file-input"
+            onChange={this.onSelectFile}
+            type="file"
+          />
+        </div>
+        <div className="page-tile central-input-frame">
+          <input
+            value="Submit"
+            type="submit"
+            onClick={this.onSubmit}
+          />
+        </div>
       </div>
     )
   }

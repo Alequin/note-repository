@@ -2,7 +2,13 @@
 
 .new-note-page-frame{
   width: $page-width;
-  background-color: white;
   margin: 10px auto;
-  height: 500px;
+
+  .central-input-frame{
+    text-align: center;
+  }
+
+  .file-input{
+    
+  }
 }
