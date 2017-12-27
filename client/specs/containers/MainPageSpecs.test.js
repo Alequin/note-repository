@@ -4,6 +4,7 @@ import MainPage from "./../../containers/mainPage/MainPage.jsx"
 import Pages from "./../../containers/mainPage/Pages.js"
 import SelectionPage from "./../../containers/selectionPage/SelectionPage.jsx"
 import ViewPage from "./../../containers/viewPage/ViewPage.jsx"
+import NewNotePage from "./../../containers/newNotePage/NewNotePage.jsx"
 
 
 describe("Main page", function(){
@@ -23,6 +24,12 @@ describe("Main page", function(){
   it("can decide which page to show - view page", () => {
     let expected = <ViewPage note={{}}/>
     let result = page.renderPage(Pages.view)
+    assert.deepEqual(result, expected)
+  })
+
+  it("can decide which page to show - newNote page", () => {
+    let expected = <NewNotePage/>
+    let result = page.renderPage(Pages.newNote)
     assert.deepEqual(result, expected)
   })
 })

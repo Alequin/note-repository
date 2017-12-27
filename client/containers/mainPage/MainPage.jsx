@@ -2,6 +2,7 @@ import React from "react"
 import Nav from "./../nav/Nav.jsx"
 import SelectionPage from "./../selectionPage/SelectionPage.jsx"
 import ViewPage from "./../viewPage/ViewPage.jsx"
+import NewNotePage from "./../newNotePage/NewNotePage.jsx"
 import Pages from "./Pages.js"
 import axios from "axios"
 import {requestHeaders} from "./../../../settings.js"
@@ -55,6 +56,8 @@ class MainPage extends React.Component{
         )
       case Pages.view:
         return <ViewPage note={this.state.currentNote}/>
+      case Pages.newNote:
+        return <NewNotePage/>
     }
   }
 
