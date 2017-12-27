@@ -49,9 +49,25 @@ class NewNotePAge extends React.Component{
     })
   }
 
+  renderTitleInput(value, onChange){
+    return (
+      <div>
+        <h2>Title</h2>
+        <input type="text" value={value} onChange={onChange}/>
+      </div>
+    )
+  }
+
   render(){
     return (
       <div className="new-note-page-frame">
+        <div className="page-tile central-input-frame">
+          {
+            this.renderTitleInput(
+              this.state.title, this.onChangeTitleText
+            )
+          }
+        </div>
         <div className="page-tile central-input-frame">
           <input
             className="file-input"
