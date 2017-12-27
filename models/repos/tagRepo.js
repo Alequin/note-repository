@@ -4,7 +4,7 @@ import {
   noteTagsSchema,
 } from "./../../database/schema.js"
 
-export const attachTagsToNote = function(note){
+export const findTagsOfNote = function(note){
   const tags = tagsSchema.name
   const tagsCols = tagsSchema.columns
 
@@ -17,7 +17,6 @@ export const attachTagsToNote = function(note){
     ON ${tags}.${tagsCols.id.name} = ${noteTags}.${noteTagsCols.tagId.name}
     WHERE ${tags}.${tagsCols.id.name} = ${note.id}`
   ).then((tags) => {
-    note.tags = tags.rows
-    return note
+    return tags.rows
   })
 }
