@@ -3,6 +3,7 @@ class Note{
   constructor(options = {}){
     this.id = options.id
     this.title = options.title
+    this.creationDate = options.creationDate
     this.summary = options.summary
     this.file = options.file
     this.content = options.content
