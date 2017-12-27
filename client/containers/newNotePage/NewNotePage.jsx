@@ -13,6 +13,7 @@ class NewNotePAge extends React.Component{
   constructor(props){
     super(props)
 
+    this.onChangeTitleText = this.onChangeTitleText.bind(this)
     this.onSelectFile = this.onSelectFile.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
 
@@ -24,6 +25,12 @@ class NewNotePAge extends React.Component{
       tags: [],
       sources: []
     }
+  }
+
+  onChangeTitleText(event){
+    this.setState({
+      title: event.target.value
+    })
   }
 
   onSelectFile(event){
