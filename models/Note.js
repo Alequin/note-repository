@@ -1,6 +1,7 @@
 
 class Note{
   constructor(options = {}){
+    this.id = options.id
     this.title = options.title
     this.summary = options.summary
     this.file = options.file
