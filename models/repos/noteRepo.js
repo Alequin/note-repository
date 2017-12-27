@@ -1,8 +1,36 @@
 import accessDatabase from "./../../database/accessDatabase.js"
 import Note from "./../Note.js"
+import {attachTagsToNote} from "./tagRepo.js"
+import {attachSourcesToNote} from "./sourceRepo.js"
+import {
+  notesSchema
+} from "./../../database/schema.js"
+
+export const requestFullNoteById = function(id){
+  return requestNoteById(id)
+    .then((note) => {
+      return attachTagsToNote(note)
+    })
+    .then((note) => {
+      return attachSourcesToNote(note)
+    })
+}
 
 export const requestNoteById = function(id){
-
+  const notesCols = notesSchema.columns
+  return accessDatabase.connect(
+    `SELECT
+      ${notesCols.id.name},
+      ${notesCols.title.name},
+      ${notesCols.summary.name},
+      TO_CHAR(
+        ${notesCols.creationDate.name} :: DATE, 'yyyy-mm-dd'
+      ) AS ${notesCols.creationDate.name}
+    FROM ${notesSchema.name}
+    WHERE ${notesCols.id.name} = ${id};`
+  ).then((note) => {
+    return mapNoteRowToModel(note.rows[0], notesSchema)
+  })
 }
 
 export const mapNoteRowToModel = function(noteData, noteSchema){
