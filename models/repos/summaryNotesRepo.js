@@ -12,12 +12,7 @@ export const requestSummaryNotesWithTags = function(){
     .then((notes) => {
       const promises = []
       for(let note of notes){
-        promises.push(
-          findTagsOfNote(note).then((tags) => {
-            note.setTags(tags)
-            return note
-          })
-        )
+        promises.push(attachTagsToNote(note))
       }
       return Promise.all(promises)
     })
@@ -26,6 +21,14 @@ export const requestSummaryNotesWithTags = function(){
     })
     .catch((err) => {
       console.log(err)
+    })
+}
+
+const attachTagsToNote = function(note){
+  return findTagsOfNote(note)
+    .then((tags) => {
+      note.setTags(tags)
+      return note
     })
 }
 
