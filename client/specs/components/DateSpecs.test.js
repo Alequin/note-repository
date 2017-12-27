@@ -26,4 +26,10 @@ describe("renderDateFromString", function(){
     let result = renderDateFromString("class", "Date: ", "2017-05-01")
     assert.deepEqual(result, expected)
   })
+
+  it("can render date from string - date input null", () => {
+    let expected = <Date className={"class"} prefix="Date: " year={1000} month={1} day={1}/>
+    let result = renderDateFromString("class", "Date: ")
+    assert.deepEqual(result, expected)
+  })
 })

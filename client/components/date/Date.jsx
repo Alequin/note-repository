@@ -37,7 +37,7 @@ Date.propTypes = {
   day: PropTypes.number,
 }
 
-export const renderDateFromString = function(className, prefix, date){
+export const renderDateFromString = function(className, prefix, date="1000-01-01"){
   const splitDate = date.split("-")
   return <Date
     className={className}
