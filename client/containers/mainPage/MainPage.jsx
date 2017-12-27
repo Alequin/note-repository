@@ -6,6 +6,7 @@ import NewNotePage from "./../newNotePage/NewNotePage.jsx"
 import Pages from "./Pages.js"
 import axios from "axios"
 import {requestHeaders} from "./../../../settings.js"
+import {navOptions} from "./../nav/navOptions.js"
 
 //DEV TO REMOVE
 import {mockNoteSummeries2, mockFullNote1} from "./../../dev/fakeSummaryNotesData.js"
@@ -14,6 +15,7 @@ class MainPage extends React.Component{
 
   constructor(props){
     super(props)
+    this.onClickNavBarLink = this.onClickNavBarLink.bind(this)
     this.onClickSummaryNote = this.onClickSummaryNote.bind(this)
     this.state = {
       pageToShow: Pages.selection,
@@ -45,6 +47,30 @@ class MainPage extends React.Component{
     })
   }
 
+  onClickNavBarLink(selected){
+    let stateToSet
+    switch(selected){
+      case navOptions.home:
+        this.switchToSelectionPage()
+        break;
+      case navOptions.newNote:
+        this.switchToNewNotePage()
+        break;
+    }
+  }
+
+  switchToSelectionPage(){
+    this.setState({
+      pageToShow: Pages.selection
+    })
+  }
+
+  switchToNewNotePage(){
+    this.setState({
+      pageToShow: Pages.newNote
+    })
+  }
+
   renderPage(page){
     switch(page){
       case Pages.selection:
@@ -64,7 +90,7 @@ class MainPage extends React.Component{
   render(){
     return (
       <div className="main-page-frame">
-          <Nav/>
+          <Nav onClickNavBarLink={this.onClickNavBarLink}/>
           {this.renderPage(this.state.pageToShow)}
       </div>
     )

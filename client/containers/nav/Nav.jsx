@@ -1,6 +1,18 @@
 import React from "react"
+import PropTypes from 'prop-types'
+import {navOptions} from "./navOptions.js"
 
 class Nav extends React.Component{
+
+  constructor(props){
+    super(props)
+    this.onClickHomeLink = this.onClickHomeLink.bind(this)
+  }
+
+  onClickHomeLink(){
+    this.props.onClickNavBarLink(navOptions.home)
+  }
+
   render(){
     return (
       <div className="nav-bar-frame">
@@ -14,11 +26,11 @@ class Nav extends React.Component{
         <nav>
           <div className="nav-buttons-frame">
             <div>
-              <a href="#">Home</a>
-              <a href="#">Select Filter Tags</a>
+              <a onClick={this.onClickHomeLink}>Home</a>
+              <a href="#">New Note</a>
             </div>
             <div>
-              <a href="#">Clear Filter Tags</a>
+              <a href="#">Select Filter Tags</a>
               <a href="#">Random Note</a>
             </div>
           </div>
@@ -34,6 +46,10 @@ class Nav extends React.Component{
       </div>
     )
   }
+}
+
+Nav.propTypes = {
+  onClickNavBarLink: PropTypes.func
 }
 
 export default Nav
