@@ -11,15 +11,19 @@ describe("View page", function(){
     page = new NewNotePage({})
   })
 
-  it("can render input title text", () => {
+  it("can render input section", () => {
     const func = () => {}
     let expected = (
       <div>
         <h2>Title</h2>
-        <input type="text" value="" onChange={func}/>
+        <input
+          type="text"
+          value=""
+          onChange={func}
+          style={{height: "15px"}}/>
       </div>
     )
-    let result = page.renderTitleInput("", func)
+    let result = page.renderInputSection("Title", "", func, "15px")
     assert.deepEqual(result, expected)
   })
 })

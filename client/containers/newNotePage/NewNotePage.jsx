@@ -56,11 +56,15 @@ class NewNotePAge extends React.Component{
     })
   }
 
-  renderTitleInput(value, onChange){
+  renderInputSection(header, value, onChange, inputHeight){
     return (
       <div>
-        <h2>Title</h2>
-        <input type="text" value={value} onChange={onChange}/>
+        <h2>{header}</h2>
+        <input
+          type="text"
+          value={value}
+          onChange={onChange}
+          style={{height: inputHeight}}/>
       </div>
     )
   }
