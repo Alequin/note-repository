@@ -20,3 +20,11 @@ export const findTagsOfNote = function(note){
     return tags.rows
   })
 }
+
+export const attachTagsToNote = function(note){
+  return findTagsOfNote(note)
+    .then((tags) => {
+      note.setTags(tags)
+      return note
+    })
+}

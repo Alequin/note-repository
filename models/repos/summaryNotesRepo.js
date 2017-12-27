@@ -1,5 +1,5 @@
 import accessDatabase from "./../../database/accessDatabase.js"
-import {findTagsOfNote} from "./tagRepo.js"
+import {attachTagsToNote} from "./tagRepo.js"
 import {mapNoteRowToModel} from "./noteRepo.js"
 import {
   notesSchema,
@@ -21,14 +21,6 @@ export const requestSummaryNotesWithTags = function(){
     })
     .catch((err) => {
       console.log(err)
-    })
-}
-
-const attachTagsToNote = function(note){
-  return findTagsOfNote(note)
-    .then((tags) => {
-      note.setTags(tags)
-      return note
     })
 }
 
