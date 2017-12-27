@@ -37,7 +37,6 @@ class MainPage extends React.Component{
       url: `/notes/${selected.id}`,
       headers: requestHeaders.auth
     }).then((note) => {
-      console.log(note.data);
       this.setState({
         pageToShow: Pages.view,
         currentNote: note.data,

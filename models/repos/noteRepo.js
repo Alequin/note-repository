@@ -9,10 +9,17 @@ import {
 export const requestFullNoteById = function(id){
   return requestNoteById(id)
     .then((note) => {
+      return note.loadContent()
+    })
+    .then((note) => {
+      console.log("note:", note);
       return attachTagsToNote(note)
     })
     .then((note) => {
       return attachSourcesToNote(note)
+    })
+    .catch((err) => {
+      console.log(err);
     })
 }
 
@@ -23,6 +30,7 @@ export const requestNoteById = function(id){
       ${notesCols.id.name},
       ${notesCols.title.name},
       ${notesCols.summary.name},
+      ${notesCols.file.name},
       TO_CHAR(
         ${notesCols.creationDate.name} :: DATE, 'yyyy-mm-dd'
       ) AS ${notesCols.creationDate.name}

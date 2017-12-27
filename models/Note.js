@@ -1,3 +1,4 @@
+import fs from "fs"
 
 class Note{
   constructor(options = {}){
@@ -17,6 +18,18 @@ class Note{
 
   setSources(sources){
     this.sources = sources || []
+  }
+
+  loadContent(){
+    return new Promise(function(resolve, reject){
+      fs.readFile(`./markDown/${this.file}`, 'utf8',
+        (err, data) => {
+          if (err) reject(err)
+          this.content = data
+          resolve(this)
+        }
+      )
+    }.bind(this))
   }
 }
 
