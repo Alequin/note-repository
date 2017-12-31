@@ -22,7 +22,6 @@ class NewNotePAge extends React.Component{
       title: "",
       summary: "",
       file: "",
-      contents: "",
       tags: [],
       sources: []
     }
@@ -41,14 +40,10 @@ class NewNotePAge extends React.Component{
   }
 
   onSelectFile(event){
-    const file = event.target.value.split("\\")
-    const fileName = file[file.length-1]
-
     const reader = new FileReader();
     reader.onload = function(event) {
       this.setState({
-        file: fileName,
-        contents: event.target.result
+        file: event.target.result
       })
     }.bind(this)
     reader.readAsText(event.target.files[0])
