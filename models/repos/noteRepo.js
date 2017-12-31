@@ -9,9 +9,6 @@ import {
 export const requestFullNoteById = function(id){
   return requestNoteById(id)
     .then((note) => {
-      return note.loadContent()
-    })
-    .then((note) => {
       return attachTagsToNote(note)
     })
     .then((note) => {

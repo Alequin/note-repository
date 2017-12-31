@@ -16,7 +16,7 @@ class View extends React.Component{
     )
   }
 
-  prepareContent(markDown){
+  prepareContent(markDown=""){
     return (
       <MarkDown
         className="page-tile content-frame"
@@ -53,7 +53,7 @@ class View extends React.Component{
         </section>
 
         <section>
-          {this.prepareContent(this.props.note.content)}
+          {this.prepareContent(this.props.note.file)}
         </section>
 
         <section>

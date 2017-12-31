@@ -40,6 +40,7 @@ class MainPage extends React.Component{
       url: `/notes/${selected.id}`,
       headers: requestHeaders.auth
     }).then((note) => {
+      console.log(note);
       this.setState({
         pageToShow: Pages.view,
         currentNote: note.data,
