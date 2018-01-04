@@ -24,4 +24,12 @@ describe("Picker", function(){
     let result = picker.renderItems(items)
     assert.deepEqual(result, expected)
   })
+
+  it("can render item", () => {
+    let expected = (
+      <span key="5" className="picker-item">one</span>
+    )
+    let result = picker.renderItem(5, "one")
+    assert.deepEqual(result, expected)
+  })
 })

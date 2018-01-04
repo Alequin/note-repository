@@ -2,8 +2,7 @@ import assert from "assert"
 import React from 'react'
 import NewNotePage from "./../../containers/newNotePage/NewNotePage.jsx"
 
-
-describe("View page", function(){
+describe("NewNotePage", function(){
 
   let page
 

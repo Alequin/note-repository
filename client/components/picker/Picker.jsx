@@ -7,22 +7,22 @@ class Picker extends React.Component{
     super(props)
   }
 
-  renderItems(items){
-    let key = 1;
-    const itemElements = items.map((item) => {
-      return (
-        <span
-          key={key++}
-          className="picker-item">
-            {item}
-        </span>
-      )
-    })
+  renderItem(key, item){
     return (
-      <div>
-        {itemElements}
-      </div>
+      <span
+        key={key}
+        className="picker-item">
+          {item}
+      </span>
     )
+  }
+
+  renderItems(items){
+    let key = 1
+    const itemElements = items.map((item) => {
+      return this.renderItem(key++, item)
+    })
+    return <div>{itemElements}</div>
   }
 
   render(){
