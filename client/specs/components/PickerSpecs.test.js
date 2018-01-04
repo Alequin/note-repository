@@ -1,15 +1,27 @@
 import assert from "assert"
+import React from 'react'
 import Picker from "./../../components/picker/Picker.jsx"
 
 describe("Picker", function(){
 
-  let tagPicker
+  let picker
 
   beforeEach(() => {
-    tagPicker = new Picker({})
+    picker = new Picker({})
   })
 
-  it("can", () => {
+  it("can render items", () => {
+    const items = ["1", "2", "3", "4"]
 
+    let expected = (
+      <div>
+        <span key="1" className="picker-item">1</span>
+        <span key="2" className="picker-item">2</span>
+        <span key="3" className="picker-item">3</span>
+        <span key="4" className="picker-item">4</span>
+      </div>
+    )
+    let result = picker.renderItems(items)
+    assert.deepEqual(result, expected)
   })
 })
