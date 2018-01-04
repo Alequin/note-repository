@@ -6,6 +6,8 @@ import MarkDown from "./../../components/markDown/MarkDown.jsx"
 import {renderDateFromString} from "./../../components/date/Date.jsx"
 import Tags from "./../../components/tags/Tags.jsx"
 import Sources from "./../../components/sources/Sources.jsx"
+import Picker from "./../../components/picker/Picker.jsx"
+
 import {requestHeaders} from "./../../../settings.js"
 
 class NewNotePAge extends React.Component{
