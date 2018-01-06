@@ -24,12 +24,19 @@ class NewNotePage extends React.Component{
       summary: "",
       file: "",
       tags: [],
+      allTags: [],
       sources: []
     }
   }
 
   componentDidMount(){
-    
+    axios({
+      method: 'get',
+      url: '/tags',
+      headers: requestHeaders.auth
+    }).then((tags) => {
+      this.setState({allTags: tags.data})
+    })
   }
 
   onChangeTitleText(event){
