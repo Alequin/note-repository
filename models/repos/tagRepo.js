@@ -4,6 +4,14 @@ import {
   noteTagsSchema,
 } from "./../../database/schema.js"
 
+export const requestAllTagsNames = function(){
+  return requestAllTags().then((tags) => {
+    return tags.map((tag) => {
+      return tag.name
+    })
+  })
+}
+
 export const requestAllTags = function(){
   return accessDatabase.connect(
     `SELECT * FROM ${tagsSchema.name};`
