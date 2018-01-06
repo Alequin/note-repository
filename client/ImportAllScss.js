@@ -7,3 +7,4 @@ import newNotePageCss from "./containers/newNotePage/NewNotePage.scss"
 
 import noteSummaryCss from "./components/noteSummary/NoteSummary.scss"
 import tagsCss from "./components/tags/Tags.scss"
+import pickerCss from "./components/picker/Picker.scss"
