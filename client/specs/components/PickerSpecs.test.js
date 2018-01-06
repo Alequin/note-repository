@@ -15,10 +15,10 @@ describe("Picker", function(){
 
     let expected = (
       <div>
-        <span key="1" className="picker-item">1</span>
-        <span key="2" className="picker-item">2</span>
-        <span key="3" className="picker-item">3</span>
-        <span key="4" className="picker-item">4</span>
+        <span key="1" className="picker-item" onClick={picker.onClickTag}>1</span>
+        <span key="2" className="picker-item" onClick={picker.onClickTag}>2</span>
+        <span key="3" className="picker-item" onClick={picker.onClickTag}>3</span>
+        <span key="4" className="picker-item" onClick={picker.onClickTag}>4</span>
       </div>
     )
     let result = picker.renderItems(items)
@@ -27,7 +27,7 @@ describe("Picker", function(){
 
   it("can render item", () => {
     let expected = (
-      <span key="5" className="picker-item">one</span>
+      <span key="5" className="picker-item" onClick={picker.onClickTag}>one</span>
     )
     let result = picker.renderItem(5, "one")
     assert.deepEqual(result, expected)

@@ -5,13 +5,20 @@ class Picker extends React.Component{
 
   constructor(props){
     super(props)
+    this.onClickTag = this.onClickTag.bind(this)
+  }
+
+  onClickTag(event){
+    const tag = event.target.innerHTML
+    this.props.onClickTag(tag)
   }
 
   renderItem(key, item){
     return (
       <span
         key={key}
-        className="picker-item">
+        className="picker-item"
+        onClick={this.onClickTag}>
           {item}
       </span>
     )
