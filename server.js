@@ -1,6 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import {serverVariables} from "./settings.js"
+import router from "./controllers/index.js"
+
 const app = express()
 
 app.use(bodyParser.json())
@@ -14,8 +16,7 @@ app.set('port', PORT);
 
 app.use(express.static('./build'))
 
-import router from "./controllers/index.js"
-app.use(router)
+app.use("/", router)
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', PORT)
