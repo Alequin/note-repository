@@ -6,6 +6,7 @@ import MarkDown from "./../../components/markDown/MarkDown.jsx"
 import {renderDateFromString} from "./../../components/date/Date.jsx"
 import Tags from "./../../components/tags/Tags.jsx"
 import Sources from "./../../components/sources/Sources.jsx"
+import Picker from "./../../components/picker/Picker.jsx"
 
 import {requestHeaders} from "./../../../settings.js"
 
@@ -32,7 +33,7 @@ class NewNotePage extends React.Component{
   componentDidMount(){
     axios({
       method: 'get',
-      url: '/tags',
+      url: '/tags/names',
       headers: requestHeaders.auth
     }).then((tags) => {
       this.setState({allTags: tags.data})
@@ -114,7 +115,7 @@ class NewNotePage extends React.Component{
           />
         </div>
         <div className="page-tile">
-
+          <Picker items={this.state.allTags}/>
         </div>
         <div className="page-tile central-input-frame">
           <input
