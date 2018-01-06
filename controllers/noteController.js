@@ -1,5 +1,4 @@
 import express from 'express'
-import path from 'path'
 import requestAuth from "./../services/requestAuth.js"
 import {requestSummaryNotesWithTags} from "./../models/repos/summaryNotesRepo.js"
 import {requestFullNoteById} from "./../models/repos/noteRepo.js"

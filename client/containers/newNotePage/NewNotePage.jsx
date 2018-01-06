@@ -9,7 +9,7 @@ import Sources from "./../../components/sources/Sources.jsx"
 
 import {requestHeaders} from "./../../../settings.js"
 
-class NewNotePAge extends React.Component{
+class NewNotePage extends React.Component{
 
   constructor(props){
     super(props)
@@ -26,6 +26,10 @@ class NewNotePAge extends React.Component{
       tags: [],
       sources: []
     }
+  }
+
+  componentDidMount(){
+    
   }
 
   onChangeTitleText(event){
@@ -117,4 +121,4 @@ class NewNotePAge extends React.Component{
   }
 }
 
-export default NewNotePAge
+export default NewNotePage
