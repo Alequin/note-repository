@@ -33,13 +33,24 @@ class NewNotePage extends React.Component{
   }
 
   componentDidMount(){
-    axios({
+    const requestTags = axios({
       method: 'get',
       url: '/tags/names',
       headers: requestHeaders.auth
-    }).then((tags) => {
-      this.setState({allTags: tags.data})
     })
+    const requestSources = axios({
+      method: 'get',
+      url: '/sources',
+      headers: requestHeaders.auth
+    })
+
+    Promise.all([requestTags, requestSources])
+      .then((response) => {
+        this.setState({
+          allTags: response[0].data,
+          allSources: response[1].data
+        })
+      })
   }
 
   onChangeTitleText(event){
