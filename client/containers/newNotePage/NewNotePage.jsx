@@ -9,6 +9,8 @@ import Sources from "./../../components/sources/Sources.jsx"
 import Picker from "./../../components/picker/Picker.jsx"
 import SourcePicker from "./../../components/sourcePicker/SourcePicker.jsx"
 
+import {toggleItemPresenceInArray} from "./../../util/toggleItemPresenceInArray.js"
+
 import {requestHeaders} from "./../../../settings.js"
 
 class NewNotePage extends React.Component{
@@ -78,27 +80,13 @@ class NewNotePage extends React.Component{
   }
 
   onClickTag(tag){
-    const selectedTags = this.state.tags
-    const indexOfTag = selectedTags.indexOf(tag)
-
-    if(indexOfTag != -1){
-      selectedTags.splice(indexOfTag, 1)
-    }else{
-      selectedTags.push(tag)
-    }
-    this.setState({tags: selectedTags})
+    console.log(this.state.tags);
+    this.setState({tags: toggleItemPresenceInArray(this.state.tags, tag)})
   }
 
   onClickSource(source){
-    const selectedSources = this.state.sources
-    const indexOfSource = selectedSources.indexOf(source)
-
-    if(indexOfSource != -1){
-      selectedSources.splice(indexOfSource, 1)
-    }else{
-      selectedSources.push(source)
-    }
-    this.setState({sources: selectedSources})
+    console.log(this.state.sources);
+    this.setState({sources: toggleItemPresenceInArray(this.state.sources, source)})
   }
 
   onSubmit(){
