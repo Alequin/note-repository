@@ -7,6 +7,7 @@ import {renderDateFromString} from "./../../components/date/Date.jsx"
 import Tags from "./../../components/tags/Tags.jsx"
 import Sources from "./../../components/sources/Sources.jsx"
 import Picker from "./../../components/picker/Picker.jsx"
+import SourcePicker from "./../../components/sourcePicker/SourcePicker.jsx"
 
 import {requestHeaders} from "./../../../settings.js"
 
@@ -19,6 +20,7 @@ class NewNotePage extends React.Component{
     this.onChangeSummaryText = this.onChangeSummaryText.bind(this)
     this.onSelectFile = this.onSelectFile.bind(this)
     this.onClickTag = this.onClickTag.bind(this)
+    this.onClickSource = this.onClickSource.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
 
     this.state = {
@@ -87,6 +89,18 @@ class NewNotePage extends React.Component{
     this.setState({tags: selectedTags})
   }
 
+  onClickSource(source){
+    const selectedSources = this.state.sources
+    const indexOfSource = selectedSources.indexOf(source)
+
+    if(indexOfSource != -1){
+      selectedSources.splice(indexOfSource, 1)
+    }else{
+      selectedSources.push(source)
+    }
+    this.setState({sources: selectedSources})
+  }
+
   onSubmit(){
     axios({
       method: 'post',
@@ -143,7 +157,7 @@ class NewNotePage extends React.Component{
           <Picker items={this.state.allTags} onClickItem={this.onClickTag}/>
         </div>
         <div className="page-tile">
-          <Picker items={this.state.allSources} onClickItem={this.onClickTag}/>
+          <SourcePicker items={this.state.allSources} onClickItem={this.onClickSource}/>
         </div>
         <div className="page-tile central-input-frame">
           <input
