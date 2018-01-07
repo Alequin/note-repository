@@ -1,4 +1,6 @@
+
 .picker-item{
+  display: inline-block;
   padding: 10px;
   margin: 5px;
   border: 1px solid black;
@@ -12,5 +14,5 @@
 
 .highlighted-picker-item{
   border-color: #00ffff;
-  background-color: #00eeee; 
+  background-color: #00eeee;
 }
