@@ -4,13 +4,18 @@ import PickerItem from "./PickerItem.jsx"
 
 class Picker extends React.Component{
 
+  constructor(props){
+    super(props)
+    this.onClickTag = this.onClickTag.bind(this)
+  }
+
   onClickTag(tag){
     this.props.onClickTag(tag)
   }
 
   renderItem(key, item){
     return (
-      <PickerItem key={key} item={item}/>
+      <PickerItem key={key} item={item} onClickTag={this.onClickTag}/>
     )
   }
 

@@ -18,6 +18,7 @@ class NewNotePage extends React.Component{
     this.onChangeTitleText = this.onChangeTitleText.bind(this)
     this.onChangeSummaryText = this.onChangeSummaryText.bind(this)
     this.onSelectFile = this.onSelectFile.bind(this)
+    this.onClickTag = this.onClickTag.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
 
     this.state = {
@@ -60,6 +61,10 @@ class NewNotePage extends React.Component{
       })
     }.bind(this)
     reader.readAsText(event.target.files[0])
+  }
+
+  onClickTag(tag){
+
   }
 
   onSubmit(){
@@ -115,7 +120,7 @@ class NewNotePage extends React.Component{
           />
         </div>
         <div className="page-tile">
-          <Picker items={this.state.allTags}/>
+          <Picker items={this.state.allTags} onClickTag={this.onClickTag}/>
         </div>
         <div className="page-tile central-input-frame">
           <input
