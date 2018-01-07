@@ -11,9 +11,8 @@ class PickerItem extends React.Component{
     }
   }
 
-  onClickTag(event){
-    const tag = event.target.innerHTML
-    this.props.onClickTag(tag)
+  onClickTag(){
+    this.props.onClickTag(this.props.item)
   }
 
   renderItem(item){
@@ -32,7 +31,7 @@ class PickerItem extends React.Component{
 }
 
 PickerItem.propTypes = {
-  items: PropTypes.array,
+  item: PropTypes.string,
   onClickTag: PropTypes.func
 }
 
