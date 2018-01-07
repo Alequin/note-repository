@@ -64,7 +64,15 @@ class NewNotePage extends React.Component{
   }
 
   onClickTag(tag){
+    const selectedTags = this.state.tags
+    const indexOfTag = selectedTags.indexOf(tag)
 
+    if(indexOfTag != -1){
+      selectedTags.splice(indexOfTag, 1)
+    }else{
+      selectedTags.push(tag)
+    }
+    this.setState({tags: selectedTags})
   }
 
   onSubmit(){
