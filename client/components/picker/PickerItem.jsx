@@ -27,11 +27,7 @@ class PickerItem extends React.Component{
   }
 
   render(){
-    return (
-      <div className="picker-frame">
-        {this.renderItem(this.props.item)}
-      </div>
-    )
+    return this.renderItem(this.props.item)
   }
 }
 

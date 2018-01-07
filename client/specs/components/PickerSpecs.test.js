@@ -1,6 +1,7 @@
 import assert from "assert"
 import React from 'react'
 import Picker from "./../../components/picker/Picker.jsx"
+import PickerItem from "./../../components/picker/PickerItem.jsx"
 
 describe("Picker", function(){
 
@@ -15,10 +16,10 @@ describe("Picker", function(){
 
     let expected = (
       <div>
-        <span key="1" className="picker-item" onClick={picker.onClickTag}>1</span>
-        <span key="2" className="picker-item" onClick={picker.onClickTag}>2</span>
-        <span key="3" className="picker-item" onClick={picker.onClickTag}>3</span>
-        <span key="4" className="picker-item" onClick={picker.onClickTag}>4</span>
+        <PickerItem key="1" item={"1"}/>
+        <PickerItem key="2" item={"2"}/>
+        <PickerItem key="3" item={"3"}/>
+        <PickerItem key="4" item={"4"}/>
       </div>
     )
     let result = picker.renderItems(items)
@@ -26,9 +27,7 @@ describe("Picker", function(){
   })
 
   it("can render item", () => {
-    let expected = (
-      <span key="5" className="picker-item" onClick={picker.onClickTag}>one</span>
-    )
+    let expected = <PickerItem key="5" item={"one"}/>
     let result = picker.renderItem(5, "one")
     assert.deepEqual(result, expected)
   })

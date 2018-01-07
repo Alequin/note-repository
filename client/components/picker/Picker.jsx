@@ -1,26 +1,16 @@
 import React from "react"
 import PropTypes from 'prop-types'
+import PickerItem from "./PickerItem.jsx"
 
 class Picker extends React.Component{
 
-  constructor(props){
-    super(props)
-    this.onClickTag = this.onClickTag.bind(this)
-  }
-
-  onClickTag(event){
-    const tag = event.target.innerHTML
+  onClickTag(tag){
     this.props.onClickTag(tag)
   }
 
   renderItem(key, item){
     return (
-      <span
-        key={key}
-        className="picker-item"
-        onClick={this.onClickTag}>
-          {item}
-      </span>
+      <PickerItem key={key} item={item}/>
     )
   }
 
