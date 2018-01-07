@@ -4,6 +4,14 @@ import {
   noteSourcesSchema,
 } from "./../../database/schema.js"
 
+export const requestAllSources = function(){
+  return accessDatabase.connect(
+    `SELECT * FROM ${sourcesSchema.name};`
+  ).then((sources) => {
+    return sources.rows
+  })
+}
+
 export const findSourcesOfNote = function(note){
   const sources = sourcesSchema.name
   const sourcesCols = sourcesSchema.columns
