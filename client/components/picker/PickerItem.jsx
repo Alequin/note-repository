@@ -5,17 +5,17 @@ class PickerItem extends React.Component{
 
   constructor(props){
     super(props)
-    this.onClickTag = this.onClickTag.bind(this)
+    this.onClickItem = this.onClickItem.bind(this)
     this.state = {
       highlighted: false
     }
   }
 
-  onClickTag(){
+  onClickItem(){
     this.setState({
       highlighted: !this.state.highlighted
     })
-    this.props.onClickTag(this.props.item)
+    this.props.onClickItem(this.props.item)
   }
 
   renderItem(item){
@@ -24,7 +24,7 @@ class PickerItem extends React.Component{
     return (
       <span
         className={className}
-        onClick={this.onClickTag}>
+        onClick={this.onClickItem}>
           {item}
       </span>
     )
@@ -37,7 +37,7 @@ class PickerItem extends React.Component{
 
 PickerItem.propTypes = {
   item: PropTypes.string,
-  onClickTag: PropTypes.func
+  onClickItem: PropTypes.func
 }
 
 export default PickerItem

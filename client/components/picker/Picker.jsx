@@ -6,16 +6,16 @@ class Picker extends React.Component{
 
   constructor(props){
     super(props)
-    this.onClickTag = this.onClickTag.bind(this)
+    this.onClickItem = this.onClickItem.bind(this)
   }
 
-  onClickTag(tag){
-    this.props.onClickTag(tag)
+  onClickItem(item){
+    this.props.onClickItem(item)
   }
 
   renderItem(key, item){
     return (
-      <PickerItem key={key} item={item} onClickTag={this.onClickTag}/>
+      <PickerItem key={key} item={item} onClickItem={this.onClickItem}/>
     )
   }
 
@@ -38,7 +38,7 @@ class Picker extends React.Component{
 
 Picker.propTypes = {
   items: PropTypes.array,
-  onClickTag: PropTypes.func
+  onClickItem: PropTypes.func
 }
 
 export default Picker

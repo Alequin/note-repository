@@ -27,7 +27,8 @@ class NewNotePage extends React.Component{
       file: "",
       tags: [],
       allTags: [],
-      sources: []
+      sources: [],
+      allSources: []
     }
   }
 
@@ -128,7 +129,10 @@ class NewNotePage extends React.Component{
           />
         </div>
         <div className="page-tile">
-          <Picker items={this.state.allTags} onClickTag={this.onClickTag}/>
+          <Picker items={this.state.allTags} onClickItem={this.onClickTag}/>
+        </div>
+        <div className="page-tile">
+          <Picker items={this.state.allSources} onClickItem={this.onClickTag}/>
         </div>
         <div className="page-tile central-input-frame">
           <input

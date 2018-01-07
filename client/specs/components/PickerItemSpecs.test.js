@@ -12,7 +12,7 @@ describe("Picker Item", function(){
 
   it("can render item", () => {
     let expected = (
-      <span className="picker-item" onClick={pickerItem.onClickTag}>one</span>
+      <span className="picker-item" onClick={pickerItem.onClickItem}>one</span>
     )
     let result = pickerItem.renderItem("one")
     assert.deepEqual(result, expected)
@@ -21,7 +21,7 @@ describe("Picker Item", function(){
   it("can render item - highlighted", () => {
     pickerItem.state.highlighted = true
     let expected = (
-      <span className="picker-item highlighted-picker-item" onClick={pickerItem.onClickTag}>one</span>
+      <span className="picker-item highlighted-picker-item" onClick={pickerItem.onClickItem}>one</span>
     )
     let result = pickerItem.renderItem("one")
     assert.deepEqual(result, expected)
