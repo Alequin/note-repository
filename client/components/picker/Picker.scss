@@ -1,16 +1,5 @@
 .picker-frame{
   text-align: center;
 
-  .picker-item{
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-    transition: box-shadow 0.25s;
-
-    &:hover{
-      box-shadow: 2px 2px #000;
-    }
-  }
+  
 }
