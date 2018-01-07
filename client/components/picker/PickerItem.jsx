@@ -16,9 +16,11 @@ class PickerItem extends React.Component{
   }
 
   renderItem(item){
+    let className = "picker-item"
+    if(this.state.highlighted) className += " highlighted-picker-item"
     return (
       <span
-        className="picker-item"
+        className={className}
         onClick={this.onClickTag}>
           {item}
       </span>
