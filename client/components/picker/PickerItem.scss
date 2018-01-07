@@ -1,5 +1,4 @@
 .picker-item{
-  display: inline-block;
   padding: 10px;
   margin: 5px;
   border: 1px solid black;
@@ -9,4 +8,9 @@
   &:hover{
     box-shadow: 2px 2px #000;
   }
+}
+
+.highlighted-picker-item{
+  border-color: #00ffff;
+  background-color: #00eeee; 
 }

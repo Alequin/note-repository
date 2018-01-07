@@ -12,6 +12,9 @@ class PickerItem extends React.Component{
   }
 
   onClickTag(){
+    this.setState({
+      highlighted: !this.state.highlighted
+    })
     this.props.onClickTag(this.props.item)
   }
 
